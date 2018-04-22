@@ -25,4 +25,7 @@ router.post('/refresh', passport.authenticate('jwt', {session: false}), AuthCont
 //Add Entry
 router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser],UsersController.addEntry);
 
+//
+router.get('/getchathistory', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);
+
 module.exports = {router, basicStrategy, jwtStrategy};

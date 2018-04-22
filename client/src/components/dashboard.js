@@ -1,14 +1,16 @@
 import React from 'react';
+import Chatter from './chatter';
+import refreshData from '../actions/socketlistener';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import {fetchProtectedData} from '../actions/protected-data';
+import {fetchChatData} from '../actions/chat-data';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
         if (!this.props.loggedIn) {
             return;
         }
-        this.props.dispatch(fetchProtectedData());
+        this.props.dispatch(fetchChatData());
     }
 
     render() {
@@ -16,18 +18,20 @@ export class Dashboard extends React.Component {
         if (!this.props.loggedIn) {
             return <Redirect to="/" />;
         }
-
+        
         return (
+            
             <div className="dashboard">
                 <br />
                 <div className="dashboard-username">
                     Email: {this.props.email}
                 </div>
                 <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
+                    Protected data: {this.props.chatData}
                 </div>
                 <br />
                 <Link to="/add">Add Entry</Link>
+                <Chatter />
             </div>
         );
     }
@@ -39,7 +43,7 @@ const mapStateToProps = state => {
     return {
         loggedIn: currentUser !== null,
         email: currentUser ? state.auth.currentUser.email : '',
-        protectedData: state.protectedData.data
+        chatData: state.chatData.data
     };
 };
 

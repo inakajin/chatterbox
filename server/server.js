@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
 const jsonParser = bodyParser.json();
-
+const socketEvents = require('./socketEvents');
 const {router: Router, basicStrategy, jwtStrategy} = require('./controllers/router');
 
 mongoose.Promise = global.Promise;
@@ -72,6 +72,7 @@ function runServer() {
                     mongoose.disconnect();
                     reject(err);
                 });
+                const io = require('socket.io')(server); socketEvents(io);
         });
     });
 }

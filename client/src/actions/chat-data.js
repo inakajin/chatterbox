@@ -1,5 +1,7 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+import io from 'socket.io-client'; 
+const socket = io.connect(API_BASE_URL);
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
@@ -13,9 +15,9 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const fetchProtectedData = () => (dispatch, getState) => {
+export const fetchChatData = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/protected`, {
+    return fetch(`${API_BASE_URL}/getchathistory`, {
         method: 'GET',
         headers: {
             // Provide our auth token as credentials
@@ -29,3 +31,21 @@ export const fetchProtectedData = () => (dispatch, getState) => {
             dispatch(fetchProtectedDataError(err));
         });
 };
+
+
+
+export const refreshData = (time) => {
+    return (dispatch) => {
+      console.log('mango');
+      socket.removeListener('new chat');
+      socket.on('new chat', function(response) {
+        console.log('peach');
+        console.log(response);
+        dispatch({
+          type: 'REALTIME_REFRESH',
+          payload: response,
+          //time: time
+        })
+      });
+    }
+  }

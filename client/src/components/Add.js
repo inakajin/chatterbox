@@ -3,11 +3,16 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { add } from '../actions/auth';
-import { testFetch } from '../actions/protected-data';
+import { testFetch } from '../actions/chat-data';
 import { sendEntry } from '../actions/addNew';
+import { refreshData } from '../actions/chat-data';
 // import {required, nonEmpty} from '../validators';
 
 export class Add extends React.Component {
+
+    componentWillMount() {
+        this.props.dispatch(refreshData());
+    }
 
     componentDidMount() {
        // this.props.dispatch(testFetch());
@@ -16,9 +21,7 @@ export class Add extends React.Component {
 
     onSubmit(values) {
         let submission = {
-            journal: values.journal,
-            mood: values.mood,
-            activity: values.activity
+            body: values.chat           
         };
         console.log(submission);
         return this.props.dispatch(sendEntry(submission));
@@ -47,36 +50,10 @@ export class Add extends React.Component {
                 {error}
                 <br />
                 
-                <p>Welcome back, {this.props.email}</p>
-
-                <p>Mood</p>
-                <label>
-                    <Field name="mood" component="input" type="radio" value="happy" />
-                    {' '}
-                    happy
-                </label>
-                  <label>
-                    <Field name="mood" component="input" type="radio" value="nervous" />
-                    {' '}
-                    nervous
-                  </label>
-
-                  <p>Activity</p>
-                <label>
-                    <Field name="activity" component="input" type="radio" value="work" />
-                    {' '}
-                    work
-                </label>
-                  <label>
-                    <Field name="activity" component="input" type="radio" value="video games" />
-                    {' '}
-                    video games
-                  </label>
-                  <br />
-                  <br />
+                
                   <label htmlFor="journal">Journal</label>
                   <br />
-                    <Field name="journal" component="textarea" type="textarea" />
+                    <Field name="chat" component="textarea" type="textarea" />
                 <br />
                 <button disabled={this.props.pristine || this.props.submitting}>
                     Submit
