@@ -4,7 +4,8 @@ const Entry = require('../models/entries');
 
 // Get Chat History
 exports.getchathistory = function(req, res, next) {
-    Entry.find().exec().then(chats => {
+    console.log(req.params);
+    Entry.find({roomId:req.params.id}).exec().then(chats => {
         res.json({
             data: chats
         })

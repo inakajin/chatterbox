@@ -15,9 +15,10 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const fetchChatData = () => (dispatch, getState) => {
+export const fetchChatData = (id) => (dispatch, getState) => {
+    console.log(getState(), id);
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/getchathistory`, {
+    return fetch(`${API_BASE_URL}/room/${id}`, {
         method: 'GET',
         headers: {
             // Provide our auth token as credentials

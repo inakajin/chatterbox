@@ -10,14 +10,14 @@ export class Dashboard extends React.Component {
         if (!this.props.loggedIn) {
             return;
         }
-        this.props.dispatch(fetchChatData());
+        //this.props.dispatch(fetchChatData(this.props));
     }
 
     render() {
         // Only visible to logged in users
-        if (!this.props.loggedIn) {
-            return <Redirect to="/" />;
-        }
+        //if (!this.props.loggedIn) {
+       //     return <Redirect to="/" />;
+       // }
         
         return (
             
@@ -30,7 +30,7 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.chatData}
                 </div>
                 <br />
-                <Link to="/add">Add Entry</Link>
+                {/*<Link to="/add">Add Entry</Link>*/}
                 <Chatter />
             </div>
         );

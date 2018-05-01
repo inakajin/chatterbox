@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EntrySchema = new Schema({
+const RoomSchema = new Schema({
+    roomname: String,
     body: String,
     date: String,
     location: Object,
-    userId: String,
-    roomId: String
+    userId: String
 });
 
-module.exports = mongoose.model('Entry', EntrySchema);
+module.exports = mongoose.model('rooms', RoomSchema);

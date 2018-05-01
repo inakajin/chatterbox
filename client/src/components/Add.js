@@ -20,8 +20,10 @@ export class Add extends React.Component {
 
 
     onSubmit(values) {
+        console.log(this.props)
         let submission = {
-            body: values.chat           
+            body: values.chat, 
+            roomId: this.props.roomId           
         };
         console.log(submission);
         return this.props.dispatch(sendEntry(submission));
@@ -37,9 +39,9 @@ export class Add extends React.Component {
             );
         }
 
-        if (!this.props.loggedIn) {
-            return <Redirect to="/" />;
-        }
+        //if (!this.props.loggedIn) {
+        //    return <Redirect to="/" />;
+        //}
 
         return (
             <form

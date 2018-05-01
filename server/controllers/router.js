@@ -12,6 +12,7 @@ const jsonParser = bodyParser.json();
 const EntryController = require('./entries');
 const UsersController = require('./users');
 const AuthController = require('./auth');
+const RoomController = require('./rooms');
 
 //Register User
 router.post('/register', jsonParser, UsersController.register);
@@ -25,7 +26,13 @@ router.post('/refresh', passport.authenticate('jwt', {session: false}), AuthCont
 //Add Entry
 router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser],UsersController.addEntry);
 
-//
-router.get('/getchathistory', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);
+//Get Chat History
+//router.get('/getchathistory', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);
+
+//Get Room
+router.get('/room/:id', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);
+
+//Create Room
+router.post('/addroom', [passport.authenticate('jwt', {session: false}), jsonParser],RoomController.createRoom);
 
 module.exports = {router, basicStrategy, jwtStrategy};

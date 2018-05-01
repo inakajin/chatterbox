@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import avatar from '../user-avatar.png';
 import Add from './Add';
+import {createRoom} from '../actions/rooms'
 import {connect} from 'react-redux';
+import {fetchChatData} from '../actions/chat-data';
 console.log(avatar);
 class Chatter extends Component {
     constructor(props){
@@ -27,8 +29,15 @@ class Chatter extends Component {
         console.log("component did mount");
         window.addEventListener('resize', this._onResize)
         //this.addTestMessages();
+        this.props.dispatch(fetchChatData(this.props.match.params.roomid));
+        
     }
 
+    newroom = ()=> {
+      let roomname = prompt ("Enter Room Name", "default")
+      console.log(roomname)
+      this.props.dispatch(createRoom(roomname));
+    }
  /*   addTestMessages(){
         let {messages} = this.state;
         for(let i = 0; i < 2; i++){
@@ -72,7 +81,8 @@ class Chatter extends Component {
                 <div className="left">
                 
                     <div className="actions">
-                        <button>New Message</button>
+                        <button onClick={this.newroom}>New Room</button>
+
                     </div>
                 </div>
                 <div className="content"><h2>Title</h2></div>
@@ -139,7 +149,7 @@ class Chatter extends Component {
 
                         
                     </div>
-                    <Add />
+                    <Add roomId={this.props.match.params.roomid} />
                    {/* <div className="chatter-input">
                     
                         <div className="text-input">

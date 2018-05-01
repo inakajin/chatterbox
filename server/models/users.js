@@ -11,7 +11,11 @@ const UserSchema = mongoose.Schema({
     email: {
         type: String,
         required: true
-    }
+    },
+    displayname: {
+        type: String,
+        default: "I choose not to reveal myself"
+    }    
 });
 
 UserSchema.methods.apiRepr = function() {
