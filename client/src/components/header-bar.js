@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-
+import avatar from "../user-avatar.png";
 export class HeaderBar extends React.Component {
     logOut() {
         this.props.dispatch(setCurrentUser(null));
@@ -19,10 +19,29 @@ export class HeaderBar extends React.Component {
             );
         }
         return (
-            <div className="header-bar">
-                <h1>Foo App</h1>
-                {logOutButton}
+            <div className="header">
+                <h1>chatterBox</h1>
+                
+          <div className="left">
+            <div className="actions">
+              <button onClick={this.newroom}>New Room</button>
             </div>
+          </div>
+          <div className="content">
+            <h2>Title</h2>
+          </div>
+          <div className="right">
+            <div className="user-bar">
+              <div className="profile-name">Mike</div>
+              <div className="profile-image">
+                <img src={avatar} alt="" />
+              </div>
+            </div>
+          </div>
+          {logOutButton}
+        </div>
+                
+           
         );
     }
 }

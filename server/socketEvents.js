@@ -19,15 +19,17 @@ exports = module.exports = function (io) {
 
 // handle incoming connections from clients
 io.on('connection', function(socket) {
-
+console.log("connected");
     // once a client has connected, we expect to get a ping from them saying what room they want to join
     socket.on('room', function(room) {
       console.log("hulahoop",room);
         socket.join(room);
         socket.on('message', function(message) {
+          console.log('frisbee', message)
           io.sockets.in(room).emit('message', message);
         })
     });
+    socket.emit("user", "hello world")
 });
 
 // now, it's easy to send a message to just the clients in a given room

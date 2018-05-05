@@ -6,16 +6,19 @@ import { add } from '../actions/auth';
 import { testFetch } from '../actions/chat-data';
 import { sendEntry } from '../actions/addNew';
 import { refreshData } from '../actions/chat-data';
+import io from 'socket.io-client'; 
+import {API_BASE_URL} from '../config';
 // import {required, nonEmpty} from '../validators';
 
 export class Add extends React.Component {
 
     componentWillMount() {
-        this.props.dispatch(refreshData());
+        //this.props.dispatch(refreshData());
     }
 
     componentDidMount() {
        // this.props.dispatch(testFetch());
+   
     }
 
 
@@ -26,7 +29,7 @@ export class Add extends React.Component {
             roomId: this.props.roomId           
         };
         console.log(submission);
-        return this.props.dispatch(sendEntry(submission));
+        return this.props.dispatch(sendEntry(submission, this.props.socket));
     }
 
     render() {

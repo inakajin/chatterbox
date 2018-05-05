@@ -4,6 +4,7 @@ import refreshData from '../actions/socketlistener';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import {fetchChatData} from '../actions/chat-data';
+import Rooms from './rooms';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -11,6 +12,7 @@ export class Dashboard extends React.Component {
             return;
         }
         //this.props.dispatch(fetchChatData(this.props));
+        console.log("hello");
     }
 
     render() {
@@ -31,7 +33,8 @@ export class Dashboard extends React.Component {
                 </div>
                 <br />
                 {/*<Link to="/add">Add Entry</Link>*/}
-                <Chatter />
+              
+                <Rooms />
             </div>
         );
     }

@@ -102,10 +102,12 @@ exports.register = function(req, res, next) {
                     location: 'email'
                 });
             }
+            console.log(count, req.body);
             // If there is no existing user, hash the password
             return User.hashPassword(password);
         })
         .then(hash => {
+            console.log(hash);
             return User.create({
                 email,
                 password: hash,

@@ -1,11 +1,11 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
-import io from 'socket.io-client'; 
-const socket = io.connect(API_BASE_URL);
+//import io from 'socket.io-client'; 
+//const socket = io.connect(API_BASE_URL);
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
-    type: FETCH_PROTECTED_DATA_SUCCESS,
+    type: 'FETCH_ROOMNAMES',
     data
 });
 
@@ -15,15 +15,15 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const fetchChatData = (id) => (dispatch, getState) => {
-    console.log(getState(), id);
-    const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/room/${id}`, {
-        method: 'GET',
-        headers: {
+export const fetchRoomNames = () => (dispatch, getState) => {
+    console.log(getState());
+    //const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/getrooms`, {
+        method: 'GET'
+        //headers: {
             // Provide our auth token as credentials
-            Authorization: `Bearer ${authToken}`
-        }
+       //     Authorization: `Bearer ${authToken}`
+        //}
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())

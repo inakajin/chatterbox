@@ -29,6 +29,9 @@ router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser]
 //Get Chat History
 //router.get('/getchathistory', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);
 
+//Get all rooms
+router.get('/getrooms', jsonParser, RoomController.getRooms);
+
 //Get Room
 router.get('/room/:id', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);
 

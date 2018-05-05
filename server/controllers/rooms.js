@@ -16,7 +16,17 @@ exports.createRoom = function(req, res, next) {
             data: doc
          });
      });    
+};
 
+exports.getRooms = function(req, res, next) {
+    console.log("yam");
+    Room.find().exec().then(rooms => {
+        res.json({
+            data: rooms
+        })
+    }).catch(error => {
+        throw error;
+    }) 
 };
 
 

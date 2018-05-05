@@ -8,15 +8,11 @@ import {
 const initialState = {
     data: '',
     error: null,
+    rooms: [],
     messages: addTestMessages()
 };
 
- 
-
 export default function reducer(state = initialState, action) {
-
-    
-
 
     switch (action.type) {
         case FETCH_PROTECTED_DATA_SUCCESS: {
@@ -38,11 +34,18 @@ export default function reducer(state = initialState, action) {
         case 'REALTIME_REFRESH': {
             console.log(action, state)
             let newMsg = [...state.messages]
-            newMsg.push(action.payload)
+            newMsg.push({body: action.payload})
             console.log(newMsg)
             return {
                 ...state,
                 messages: newMsg
+            }
+        }
+        case 'FETCH_ROOMNAMES': {
+            console.log(action, state)
+            return {
+                ...state,
+                rooms: action.data
             }
         }
         default: 
