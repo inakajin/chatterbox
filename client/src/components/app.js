@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import avatar from "../user-avatar.png";
 import HeaderBar from './header-bar';
+import FooterBar from './footer-bar';
 import LeftSideBar from './left-sidebar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
@@ -51,15 +52,15 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div className="app">
+            <div className="app-chatter">
                 <HeaderBar />
-                <LeftSideBar />
+                
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/add" component={Add} />
                 <Route exact path="/room/:roomid" component={Chatter} />
-                
+                <FooterBar />                
             </div>
         );
     }

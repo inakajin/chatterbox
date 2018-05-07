@@ -14,17 +14,20 @@ export class LeftSideBar extends React.Component {
     render() {
         const roomnames = this.props.roomnames.map((room, i) => {
             return <li key={i} className="room-info">
+                    <Link to={{ pathname: `/room/${room._id}`, name:room.roomname }}>
                         <h2>{room.roomname}</h2>
-                        <p>Hello......</p>
-                        <Link to={{ pathname: `/room/${room._id}`, name:room.roomname }}>{room.roomname}</Link>
+                    </Link>
+                        
                     </li>
         })
         return (
             <div className="sidebar-left">
-            Rooms
-            <div className="rooms">
+                <div className = "title">
+                    <h2>Rooms</h2>
+                </div>
+            <ul className="rooms">
               {roomnames}              
-            </div>
+            </ul>
           </div>
         );
     }

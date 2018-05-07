@@ -19,9 +19,30 @@ body {
   flex-direction: column; }
   .app-chatter .header {
     height: 50px;
+    background-color: #008CBA;
+    color: white;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+    .app-chatter .header button {
+      font-family: Verdana, "Geneva", sans-serif;
+      border: 0 none;
+      padding-left: 3px;
+      padding-right: 3px;
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 40px;
+      border: none;
+      border-radius: 12px;
+      background-color: #DEDEDE;
+      background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* Standard syntax */ }
     .app-chatter .header .left {
       width: 200px; }
       .app-chatter .header .left .actions {
@@ -32,7 +53,8 @@ body {
       overflow: hidden; }
       .app-chatter .header .content h2 {
         line-height: 50px;
-        text-align: center; }
+        text-align: center;
+        font-size: 24px; }
     .app-chatter .header .right {
       width: 300px; }
       .app-chatter .header .right .user-bar {
@@ -41,7 +63,8 @@ body {
         justify-content: flex-end;
         padding: 0 10px; }
         .app-chatter .header .right .user-bar .profile-name {
-          padding-right: 10px; }
+          padding-right: 10px;
+          font-size: 16px; }
         .app-chatter .header .right .user-bar .profile-image img {
           width: 30px;
           height: 30px;
@@ -54,6 +77,25 @@ body {
     .app-chatter .main .sidebar-left {
       border-right: 1px solid rgba(0, 0, 0, 0.05);
       width: 200px; }
+      .app-chatter .main .sidebar-left .title {
+        background-color: lightgray;
+        color: black; }
+      .app-chatter .main .sidebar-left .rooms {
+        list-style-type: none; }
+        .app-chatter .main .sidebar-left .rooms .room-info {
+          border: 1px solid gray;
+          background-color: green; }
+          .app-chatter .main .sidebar-left .rooms .room-info a {
+            text-decoration: none;
+            color: white; }
+            .app-chatter .main .sidebar-left .rooms .room-info a a:visited {
+              text-decoration: none; }
+            .app-chatter .main .sidebar-left .rooms .room-info a a:hover {
+              text-decoration: underline; }
+            .app-chatter .main .sidebar-left .rooms .room-info a a:focus {
+              text-decoration: none; }
+            .app-chatter .main .sidebar-left .rooms .room-info a a:hover, .app-chatter .main .sidebar-left .rooms .room-info a a:active {
+              text-decoration: underline; }
     .app-chatter .main .sidebar-right {
       border-left: 1px solid rgba(0, 0, 0, 0.05);
       width: 300px; }
@@ -84,6 +126,49 @@ body {
           border: 0 none;
           padding: 7px 15px;
           line-height: 50px; }
+    .app-chatter .main .footercontainer {
+      height: 50px;
+      color: black;
+      display: flex;
+      flex-direction: row;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      font-style: italic;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #DEDEDE;
+      background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+      /* Standard syntax */
+      vertical-align: middle; }
+      .app-chatter .main .footercontainer .social-links
+      li {
+        list-style-type: none;
+        text-align: center;
+        vertical-align: middle; }
+        .app-chatter .main .footercontainer .social-links
+        li a {
+          text-decoration: none;
+          color: #335566; }
+          .app-chatter .main .footercontainer .social-links
+          li a a:visited {
+            text-decoration: none; }
+          .app-chatter .main .footercontainer .social-links
+          li a a:hover {
+            text-decoration: underline; }
+          .app-chatter .main .footercontainer .social-links
+          li a a:focus {
+            text-decoration: none; }
+          .app-chatter .main .footercontainer .social-links
+          li a a:hover, .app-chatter .main .footercontainer .social-links
+          li a a:active {
+            text-decoration: underline; }
+      .app-chatter .main .footercontainer .footertext {
+        vertical-align: middle;
+        padding-top: 30px; }
 
 .messages {
   display: flex;

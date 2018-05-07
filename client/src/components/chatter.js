@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import avatar from "../user-avatar.png";
 import Add from "./Add";
-import { createRoom } from "../actions/rooms";
+//import { createRoom } from "../actions/rooms";
 import Rooms from './rooms';
 import { connect } from "react-redux";
 import { fetchChatData, refreshData } from "../actions/chat-data";
@@ -75,11 +75,11 @@ class Chatter extends Component {
     this.props.dispatch(fetchChatData(this.props.match.params.roomid))    
   }
 
-  newroom = () => {
-    let roomname = prompt("Enter Room Name", "default");
-    console.log(roomname);
-    this.props.dispatch(createRoom(roomname));
-  };
+ // newroom = () => {
+ //   let roomname = prompt("Enter Room Name", "default");
+ //   console.log(roomname);
+//    this.props.dispatch(createRoom(roomname));
+ // };
   /*   addTestMessages(){
         let {messages} = this.state;
         for(let i = 0; i < 2; i++){
@@ -116,7 +116,7 @@ class Chatter extends Component {
     };
     console.log(messages);
     return (
-      <div style={style} className="app-chatter">
+     // <div style={style} className="app-chatter">
         
         <div className="main">
           
@@ -182,7 +182,7 @@ class Chatter extends Component {
             </div>
           </div>
         </div>
-      </div>
+    //  </div>
     );
   }
 }

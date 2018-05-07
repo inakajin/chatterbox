@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import avatar from "../user-avatar.png";
+import { createRoom } from "../actions/rooms";
 export class HeaderBar extends React.Component {
     logOut() {
         this.props.dispatch(setCurrentUser(null));
@@ -10,36 +11,57 @@ export class HeaderBar extends React.Component {
         clearAuthToken();
     }
 
+    newroom = () => {
+        let roomname = prompt("Enter Room Name", "default");
+        console.log(roomname);
+        this.props.dispatch(createRoom(roomname));
+      };
+
     render() {
         // Only render the log out button if we are logged in
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <button onClick={() => this.logOut()}>Logout</button>
             );
         }
+
+        // Only render the New Room button if we are logged in
+        let newRoomButton;
+        if (this.props.loggedIn) {
+            newRoomButton = (
+            <button onClick={this.newroom}>New Room</button>
+            );
+        }
+
+        //let displayUserName;
+        //if (this.props.loggedIn) {
+        //    displayUserName = (
+        //        <span>{this.user.email}</span>
+        //    );
+        //}
+        
         return (
-            <div className="header">
-                <h1>chatterBox</h1>
+            <div className="header">                
+                <div className="left">
+                    <div className="actions">
+                        {newRoomButton}
+                    </div>
+                </div>
+                <div className="content">
+                    <h2>chatterBox</h2>
+                </div>
+                <div className="right">
+                    <div className="user-bar">
+                        <div className="profile-name">Mike                        
+                        {logOutButton} 
+                        </div>
+                        
+                    </div>
+                                     
+                </div>
                 
-          <div className="left">
-            <div className="actions">
-              <button onClick={this.newroom}>New Room</button>
             </div>
-          </div>
-          <div className="content">
-            <h2>Title</h2>
-          </div>
-          <div className="right">
-            <div className="user-bar">
-              <div className="profile-name">Mike</div>
-              <div className="profile-image">
-                <img src={avatar} alt="" />
-              </div>
-            </div>
-          </div>
-          {logOutButton}
-        </div>
                 
            
         );

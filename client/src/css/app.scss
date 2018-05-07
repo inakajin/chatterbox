@@ -25,17 +25,32 @@ body{
    
     .header{
         height: $header-height;
+        background-color: #008CBA;
+        color: white; 
         display: flex;
         flex-direction: row;
         border-bottom: 1px solid $border-color;
+        button{
+            font-family: Verdana, "Geneva", sans-serif;
+            border: 0 none;
+            padding-left: 3px;
+            padding-right: 3px;
+            font-size: 16px;
+            cursor: pointer;
+            line-height: $header-height - 10px;  
+            border: none;
+            border-radius: 12px;
+            background-color: #DEDEDE;
+            background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */        
+        }
         .left{
             width: $left-sidebar-width;
             .actions{
                 line-height: $header-height;
-                padding: 0 10px;
-                button{
-                    
-                }
+                padding: 0 10px;                
             }
         }
         .content{
@@ -44,6 +59,7 @@ body{
             h2{
                 line-height: $header-height;
                 text-align: center;
+                font-size: 24px;
             }
 
         }
@@ -56,6 +72,7 @@ body{
                 padding: 0 10px;
                 .profile-name{
                     padding-right: 10px;
+                    font-size: 16px;
                 }
                 .profile-image{
                     img{
@@ -66,6 +83,7 @@ body{
                 
                     }   
                 }
+                
             }
         }
     }
@@ -76,6 +94,27 @@ body{
         .sidebar-left{
             border-right: 1px solid $border-color;
             width: $left-sidebar-width;
+            .title{
+                background-color: lightgray;
+                color: black;
+            }
+            .rooms{
+                list-style-type: none;
+                .room-info{
+                    border: 1px solid gray;
+                    background-color: green;
+                    
+                    a{
+                        text-decoration: none;
+                        color: white;
+                          a:visited { text-decoration: none; }
+                          a:hover { text-decoration: underline; }
+                          a:focus { text-decoration: none; }
+                          a:hover, a:active { text-decoration: underline; }
+                          
+                    }
+                }
+            }
         }
         .sidebar-right{
             border-left: 1px solid $border-color;
@@ -119,7 +158,49 @@ body{
                 }
             }
                   
+    
         }
+        .footercontainer{
+            height: $footer-height;
+            //background-color: #008CBA;
+            color: black; 
+            display: flex;
+            flex-direction: row;
+            border-top: 1px solid $border-color;
+            font-style: italic;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #DEDEDE;
+            //background-image: url(pics/asfalt-dark.png);
+            background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
+            vertical-align: middle;
+                  
+            .social-links 
+                li {
+                    list-style-type: none;
+                    //display: inline-block;
+                    text-align: center;
+                    vertical-align: middle;
+                    a{
+                        text-decoration: none;
+                        color: #335566;
+                      
+                      a:visited { text-decoration: none; }
+                      a:hover { text-decoration: underline; }
+                      a:focus { text-decoration: none; }
+                      a:hover, a:active { text-decoration: underline; }
+                      }  
+                    }
+            .footertext {
+                vertical-align: middle;
+                padding-top: 30px;
+               
+              
+              
+            }
+        }        
     }
 }
 
