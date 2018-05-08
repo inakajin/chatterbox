@@ -4,6 +4,7 @@ import avatar from "../user-avatar.png";
 import Add from "./Add";
 //import { createRoom } from "../actions/rooms";
 import Rooms from './rooms';
+import Members from './members';
 import { connect } from "react-redux";
 import { fetchChatData, refreshData } from "../actions/chat-data";
 import io from "socket.io-client";
@@ -50,15 +51,24 @@ class Chatter extends Component {
     console.log("componentWillMount");
     // let's assume that the client page, once rendered, knows what room it wants to join
     var room = this.props.match.params.roomid;
-
+    var user = this.props;
+    console.log(this.props);
     socket.on("connect", function() {
+        //console.log(this.props);
       // Connected, let's sign-up for to receive messages for this room
-      socket.emit("room", room);
+      //if (this.props){
+        socket.emit("room", {room: room, user: user});
+      //}
+      
     });
 
     socket.on("message", function(data) {
       console.log("Incoming message:", data);
     });
+
+    socket.on("userid", function(data) {
+        console.log("Incoming userid", data);
+      });
 
     socket.on("user", function(data) {
         console.log("Incoming message:", data);
@@ -121,6 +131,7 @@ class Chatter extends Component {
         <div className="main">
           
           <Rooms />
+          
           <div className="content">
             <div className="messages">
               {messages.map((message, index) => {
@@ -144,6 +155,7 @@ class Chatter extends Component {
                 );
               })}
             </div>
+            
             <Add roomId={this.props.match.params.roomid} socket={this.state.socket} />
             {/* <div className="chatter-input">
                     
@@ -156,31 +168,8 @@ class Chatter extends Component {
                         </div>
                 </div>*/}
           </div>
-          <div className="sidebar-right">
-            Right sidebar
-            <h2 className="title">Members</h2>
-            <div className="members">
-              <div className="member">
-                <div className="user-image">
-                  <img src={avatar} alt="" />
-                </div>
-                <div className="member-info">
-                  <h2>Mike</h2>
-                  <p>Joined: 3 days ago.</p>
-                </div>
-              </div>
-
-              <div className="member">
-                <div className="user-image">
-                  <img src={avatar} alt="" />
-                </div>
-                <div className="member-info">
-                  <h2>Mike</h2>
-                  <p>Joined: 3 days ago.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Members />
+          
         </div>
     //  </div>
     );
@@ -188,12 +177,13 @@ class Chatter extends Component {
 }
 
 const mapStateToProps = state => {
-  //const {currentUser} = state.auth;
-  //console.log(currentUser);
+  const {currentUser} = state.auth;
+  console.log(currentUser);
   return {
-    //loggedIn: currentUser !== null,
-    //email: currentUser ? state.auth.currentUser.email : '',
-    messages: state.chatData.messages
+    loggedIn: currentUser !== null,
+    email: currentUser ? state.auth.currentUser.email : '',
+    messages: state.chatData.messages,
+    currentUser: state.auth.currentUser
   };
 };
 

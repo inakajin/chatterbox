@@ -20,10 +20,22 @@ exports = module.exports = function (io) {
 // handle incoming connections from clients
 io.on('connection', function(socket) {
 console.log("connected");
+
+//io.of('/room').clients((error, clients => {
+//  if (error) throw error;
+//  console.log(clients);
+//});
     // once a client has connected, we expect to get a ping from them saying what room they want to join
-    socket.on('room', function(room) {
-      console.log("hulahoop",room);
+    socket.on('room', function(data) {
+      let room = data.room;
+      let user = data.user;
+      console.log("hulahoop",room, user, "baseball");
         socket.join(room);
+        //io.of('/').in(room).clients((error, clients) => {
+        //  if (error) throw error;
+        //  console.log(clients);
+        //}); 
+        io.sockets.in(room).emit('userid', user);
         socket.on('message', function(message) {
           console.log('frisbee', message)
           io.sockets.in(room).emit('message', message);

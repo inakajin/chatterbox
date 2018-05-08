@@ -12,9 +12,12 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    displayname: {
+    username: {
         type: String,
         default: "I choose not to reveal myself"
+    },
+    joined: {
+        type: String
     }    
 });
 

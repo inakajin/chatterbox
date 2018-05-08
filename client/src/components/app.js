@@ -5,6 +5,7 @@ import avatar from "../user-avatar.png";
 import HeaderBar from './header-bar';
 import FooterBar from './footer-bar';
 import LeftSideBar from './left-sidebar';
+import RightSideBar from './right-sidebar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import Add from './Add';

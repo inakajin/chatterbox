@@ -78,13 +78,21 @@ body {
       border-right: 1px solid rgba(0, 0, 0, 0.05);
       width: 200px; }
       .app-chatter .main .sidebar-left .title {
-        background-color: lightgray;
+        background-color: #DEDEDE;
+        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* Standard syntax */
         color: black; }
       .app-chatter .main .sidebar-left .rooms {
         list-style-type: none; }
         .app-chatter .main .sidebar-left .rooms .room-info {
           border: 1px solid gray;
-          background-color: green; }
+          background-color: #556B2F; }
           .app-chatter .main .sidebar-left .rooms .room-info a {
             text-decoration: none;
             color: white; }
@@ -100,7 +108,20 @@ body {
       border-left: 1px solid rgba(0, 0, 0, 0.05);
       width: 300px; }
       .app-chatter .main .sidebar-right .title {
-        padding: 10px; }
+        background-color: #DEDEDE;
+        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+        /* Standard syntax */
+        color: black; }
+      .app-chatter .main .sidebar-right .members {
+        border: 1px solid gray;
+        background-color: #5F9EA0;
+        color: white; }
     .app-chatter .main .content {
       flex-grow: 1;
       overflow: hidden;
@@ -144,6 +165,19 @@ body {
       background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
       /* Standard syntax */
       vertical-align: middle; }
+      .app-chatter .main .footercontainer .left {
+        width: 200px; }
+        .app-chatter .main .footercontainer .left .footertext {
+          vertical-align: middle;
+          line-height: 50px;
+          padding: 0 10px; }
+      .app-chatter .main .footercontainer .right {
+        width: 300px; }
+        .app-chatter .main .footercontainer .right .footericons {
+          line-height: 50px;
+          display: flex;
+          justify-content: flex-end;
+          padding: 0 10px; }
       .app-chatter .main .footercontainer .social-links
       li {
         list-style-type: none;
@@ -166,9 +200,6 @@ body {
           li a a:hover, .app-chatter .main .footercontainer .social-links
           li a a:active {
             text-decoration: underline; }
-      .app-chatter .main .footercontainer .footertext {
-        vertical-align: middle;
-        padding-top: 30px; }
 
 .messages {
   display: flex;

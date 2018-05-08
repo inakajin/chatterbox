@@ -86,7 +86,7 @@ exports.register = function(req, res, next) {
         });
     }
 
-    let {email, password } = req.body;
+    let {email, password, username } = req.body;
     // Username and password come in pre-trimmed, otherwise we throw an error
     // before this
 
@@ -111,6 +111,8 @@ exports.register = function(req, res, next) {
             return User.create({
                 email,
                 password: hash,
+                username,
+                joined: new Date()
             });
         })
         .then(user => {
