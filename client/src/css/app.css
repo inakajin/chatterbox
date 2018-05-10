@@ -122,32 +122,32 @@ body {
         border: 1px solid gray;
         background-color: #5F9EA0;
         color: white; }
-    .app-chatter .main .content {
+    .app-chatter .main .content, .app-chatter .main .dashboard, .app-chatter .main .home {
       flex-grow: 1;
       overflow: hidden;
       display: flex;
       flex-direction: column; }
-      .app-chatter .main .content .messages {
+      .app-chatter .main .content .messages, .app-chatter .main .dashboard .messages, .app-chatter .main .home .messages {
         flex-grow: 1; }
-      .app-chatter .main .content .chatter-input {
+      .app-chatter .main .content .chatter-input, .app-chatter .main .dashboard .chatter-input, .app-chatter .main .home .chatter-input {
         border-top: 1px solid rgba(0, 0, 0, 0.05);
         height: 50px;
         display: flex;
         flex-direction: row; }
-        .app-chatter .main .content .chatter-input .text-input {
+        .app-chatter .main .content .chatter-input .text-input, .app-chatter .main .dashboard .chatter-input .text-input, .app-chatter .main .home .chatter-input .text-input {
           flex-grow: 1; }
-          .app-chatter .main .content .chatter-input .text-input textarea {
+          .app-chatter .main .content .chatter-input .text-input textarea, .app-chatter .main .dashboard .chatter-input .text-input textarea, .app-chatter .main .home .chatter-input .text-input textarea {
             border: 0 none;
             width: 100%;
             height: 100%;
             padding: 8px 15px; }
-        .app-chatter .main .content .chatter-input .actions button.post {
+        .app-chatter .main .content .chatter-input .actions button.post, .app-chatter .main .dashboard .chatter-input .actions button.post, .app-chatter .main .home .chatter-input .actions button.post {
           background: #00cec9;
           color: #FFF;
           border: 0 none;
           padding: 7px 15px;
           line-height: 50px; }
-    .app-chatter .main .footercontainer {
+    .app-chatter .main .footcontainer {
       height: 50px;
       color: black;
       display: flex;
@@ -165,40 +165,35 @@ body {
       background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
       /* Standard syntax */
       vertical-align: middle; }
-      .app-chatter .main .footercontainer .left {
-        width: 200px; }
-        .app-chatter .main .footercontainer .left .footertext {
+      .app-chatter .main .footcontainer .left {
+        width: 200px;
+        justify-content: flex-start; }
+        .app-chatter .main .footcontainer .left .footertext {
           vertical-align: middle;
           line-height: 50px;
           padding: 0 10px; }
-      .app-chatter .main .footercontainer .right {
-        width: 300px; }
-        .app-chatter .main .footercontainer .right .footericons {
+      .app-chatter .main .footcontainer .right {
+        width: 300px;
+        justify-content: flex-end; }
+        .app-chatter .main .footcontainer .right .footericons {
           line-height: 50px;
           display: flex;
           justify-content: flex-end;
           padding: 0 10px; }
-      .app-chatter .main .footercontainer .social-links
-      li {
+      .app-chatter .main .footcontainer .social-links li {
         list-style-type: none;
         text-align: center;
         vertical-align: middle; }
-        .app-chatter .main .footercontainer .social-links
-        li a {
+        .app-chatter .main .footcontainer .social-links li a {
           text-decoration: none;
           color: #335566; }
-          .app-chatter .main .footercontainer .social-links
-          li a a:visited {
+          .app-chatter .main .footcontainer .social-links li a a:visited {
             text-decoration: none; }
-          .app-chatter .main .footercontainer .social-links
-          li a a:hover {
+          .app-chatter .main .footcontainer .social-links li a a:hover {
             text-decoration: underline; }
-          .app-chatter .main .footercontainer .social-links
-          li a a:focus {
+          .app-chatter .main .footcontainer .social-links li a a:focus {
             text-decoration: none; }
-          .app-chatter .main .footercontainer .social-links
-          li a a:hover, .app-chatter .main .footercontainer .social-links
-          li a a:active {
+          .app-chatter .main .footcontainer .social-links li a a:hover, .app-chatter .main .footcontainer .social-links li a a:active {
             text-decoration: underline; }
 
 .messages {

@@ -55,12 +55,19 @@ export class App extends React.Component {
         return (
             <div className="app-chatter">
                 <HeaderBar />
-                
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
-                <Route exact path="/add" component={Add} />
-                <Route exact path="/room/:roomid" component={Chatter} />
+                <div className="main">
+                    
+                        <LeftSideBar />
+                    
+                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/register" component={RegistrationPage} />
+                    <Route exact path="/add" component={Add} />
+                    <Route exact path="/room/:roomid" component={Chatter} />
+                    
+                        <RightSideBar />
+                    
+                </div>
                 <FooterBar />                
             </div>
         );
@@ -68,7 +75,7 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-    // console.log(state.auth);
+    console.log(state.auth);
     return {   
         hasAuthToken: state.auth.authToken !== null,
         loggedIn: state.auth.currentUser !== null

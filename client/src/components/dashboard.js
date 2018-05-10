@@ -7,19 +7,13 @@ import {fetchChatData} from '../actions/chat-data';
 import Rooms from './rooms';
 
 export class Dashboard extends React.Component {
-    componentDidMount() {
-        if (!this.props.loggedIn) {
-            return;
-        }
-        //this.props.dispatch(fetchChatData(this.props));
-        console.log("hello");
-    }
+
 
     render() {
-        // Only visible to logged in users
-        //if (!this.props.loggedIn) {
-       //     return <Redirect to="/" />;
-       // }
+       //  Only visible to logged in users
+        if (!this.props.loggedIn) {
+            return <Redirect to="/" />;
+        }
         
         return (
             
@@ -34,7 +28,7 @@ export class Dashboard extends React.Component {
                 <br />
                 {/*<Link to="/add">Add Entry</Link>*/}
               
-                <Rooms />
+                
             </div>
         );
     }

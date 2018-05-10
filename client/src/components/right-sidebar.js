@@ -12,12 +12,10 @@ export class RightSideBar extends React.Component {
     //}
 
     render() {
-       // const roomnames = this.props.roomnames.map((room, i) => {
-       //     return <li key={i} className="room-info">
-       //             <Link to={{ pathname: `/room/${room._id}`, name:room.roomname }}>
-       //                 <h2>{room.roomname}</h2>
-       //             </Link>
-       //                 
+       //const members = this.props.members.map((user, i) => {
+       //     return <li key={i} className="member-info">
+       //             
+       //                 <h2>{user.username}</h2>                
        //             </li>
        // })
         return (

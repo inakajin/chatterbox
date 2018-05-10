@@ -9,7 +9,7 @@ const initialState = {
     data: '',
     error: null,
     rooms: [],
-    messages: addTestMessages()
+    messages: []
 };
 
 export default function reducer(state = initialState, action) {

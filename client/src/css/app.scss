@@ -137,7 +137,7 @@ body{
                 color: white;
             }
         }
-        .content{
+        .content, .dashboard, .home{
             flex-grow: 1;
             overflow: hidden;
             display: flex;
@@ -174,23 +174,24 @@ body{
                   
     
         }
-        .footercontainer{
-            height: $footer-height;
+.footcontainer{
+    height: $footer-height;
             //background-color: #008CBA;
-            color: black; 
-            display: flex;
-            flex-direction: row;
-            border-top: 1px solid $border-color;
-            font-style: italic;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #DEDEDE;
-            background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
-            background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
-            background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
-            background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
-            vertical-align: middle;
+    color: black; 
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid $border-color;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #DEDEDE;
+    background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
+    vertical-align: middle;
             .left{
                 width: $left-sidebar-width;
+                justify-content: flex-start;
                 .footertext {
                 vertical-align: middle;
                 //padding-top: 30px;  
@@ -200,6 +201,7 @@ body{
             }
             .right{
                 width: $right-sidebar-width;
+                justify-content: flex-end;
                 .footericons{
                 line-height: $footer-height;
                 display: flex;
@@ -207,7 +209,7 @@ body{
                 padding: 0 10px;
                 }
             }
-            .social-links 
+            .social-links{ 
                 li {
                     list-style-type: none;
                     //display: inline-block;
@@ -223,7 +225,7 @@ body{
                       a:hover, a:active { text-decoration: underline; }
                       }  
                     }
-            
+            }
         }        
     }
 }

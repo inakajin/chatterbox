@@ -34,12 +34,12 @@ export class HeaderBar extends React.Component {
             );
         }
 
-        //let displayUserName;
-        //if (this.props.loggedIn) {
-        //    displayUserName = (
-        //        <span>{this.user.email}</span>
-        //    );
-        //}
+       // let displayUserName;
+       // if (this.props.loggedIn) {
+       //    displayUserName = (
+       //         <span>{this.user.username}</span>
+       //     );
+       // }
         
         return (
             <div className="header">                
@@ -50,6 +50,7 @@ export class HeaderBar extends React.Component {
                 </div>
                 <div className="content">
                     <h2>chatterBox</h2>
+                   
                 </div>
                 <div className="right">
                     <div className="user-bar">

@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const config = require('../config');
+//const socketEvents = require('./socketEvents');
 
 const createAuthToken = user => {
     console.log(user);
@@ -11,12 +12,14 @@ const createAuthToken = user => {
     });
 };
 
-
 exports.login = function(req, res, next) {
     const authToken = createAuthToken(req.user.apiRepr());
     console.log('carrot');
+    //testfunction(req.user)
     res.json({authToken});
 } ;
+
+
 
 exports.refresh = function(req, res, next) {
     const authToken = createAuthToken(req.user);

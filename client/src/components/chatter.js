@@ -37,11 +37,13 @@ class Chatter extends Component {
   }
 
   componentWillReceiveProps(props) { 
-      console.log('componentWillReceiveProps') 
+      console.log('componentWillReceiveProps')
+      console.log(this.props) 
       console.log(props.location.pathname, this.props.location.pathname);
       if(props.location.pathname !== this.props.location.pathname) {
           this.props.dispatch(fetchChatData(props.match.params.roomid))
-      }
+            console.log(this.props)
+        }
       //this.props.dispatch(fetchChatData(this.props.match.params.roomid));
     }
 
@@ -54,10 +56,10 @@ class Chatter extends Component {
     var user = this.props;
     console.log(this.props);
     socket.on("connect", function() {
-        //console.log(this.props);
-      // Connected, let's sign-up for to receive messages for this room
-      //if (this.props){
-        socket.emit("room", {room: room, user: user});
+    //console.log(this.props);
+    // Connected, let's sign-up for to receive messages for this room
+    //if (this.props){
+    socket.emit("room", {room: room, user: user});
       //}
       
     });
@@ -80,7 +82,7 @@ class Chatter extends Component {
     console.log(this);
   }
   componentDidMount() {
-    console.log("component did mount");
+    console.log("component did mount", this.props, this.state);
     window.addEventListener("resize", this._onResize);
     this.props.dispatch(fetchChatData(this.props.match.params.roomid))    
   }
@@ -117,8 +119,21 @@ class Chatter extends Component {
 
     console.log("component will unmount");
   }
+
+  componentDidUpdate() {
+      console.log("Component did update", this.props, this.state)
+  }
+
+  connectUserSocket = () => {
+      console.log(this.props)
+      var room = this.props.match.params.roomid;
+      var user = this.props.currentUser;
+      var socket = this.state.socket;
+      
+  }
   render() {
     console.log(this);
+    this.connectUserSocket();
     const { height } = this.state;
     const { messages } = this.props;
     const style = {
@@ -128,11 +143,11 @@ class Chatter extends Component {
     return (
      // <div style={style} className="app-chatter">
         
-        <div className="main">
+     <div className="content">
           
-          <Rooms />
+          {/*<Rooms />*/}
           
-          <div className="content">
+          
             <div className="messages">
               {messages.map((message, index) => {
                 return (
@@ -154,7 +169,7 @@ class Chatter extends Component {
                   </div>
                 );
               })}
-            </div>
+            
             
             <Add roomId={this.props.match.params.roomid} socket={this.state.socket} />
             {/* <div className="chatter-input">
@@ -168,7 +183,7 @@ class Chatter extends Component {
                         </div>
                 </div>*/}
           </div>
-          <Members />
+          {/*<Members />*/}
           
         </div>
     //  </div>
@@ -183,7 +198,7 @@ const mapStateToProps = state => {
     loggedIn: currentUser !== null,
     email: currentUser ? state.auth.currentUser.email : '',
     messages: state.chatData.messages,
-    currentUser: state.auth.currentUser
+    currentUser: currentUser
   };
 };
 
