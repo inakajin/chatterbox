@@ -9,7 +9,8 @@ const initialState = {
     data: '',
     error: null,
     rooms: [],
-    messages: []
+    messages: [],
+    users: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -46,6 +47,14 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 rooms: action.data
+            }
+        }
+
+        case 'FETCH_USERS': {
+            console.log(action, state)
+            return {
+                ...state,
+                users: action.data
             }
         }
         default: 

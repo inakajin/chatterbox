@@ -1,5 +1,6 @@
 const {User} = require('../models/users');
 const Entry  = require('../models/entries');
+const Room = require('../models/rooms');
 
 // Post to register a new user
 exports.register = function(req, res, next) {
@@ -137,8 +138,31 @@ exports.addEntry = function(req, res, next) {
     let entry = new Entry(req.body);
     entry['userId'] = req.user.id;
     entry.save();
+    lastUpdated(req, res, next);
     return res.json({
        data: 'rosebud'
     });
 };
 
+//Last Updated
+function lastUpdated (req, res, next) {
+    console.log("veggie");
+    Room.update({
+        _id: req.body.roomId
+    }, {$set:{lastUpdated:new Date()}},{upsert: true}, function(doc, err){
+        console.log(doc, err);
+    })
+}
+
+//Get Users
+exports.getUsers = function (req, res, next) {
+    console.log("apple");
+    User.find().exec().then(users => {
+        console.log(users)
+        res.json(
+            {data:users}
+        )
+    }
+        
+    )
+}

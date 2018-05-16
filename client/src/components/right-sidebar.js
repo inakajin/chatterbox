@@ -5,20 +5,33 @@ import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import {fetchRoomNames} from '../actions/left-sidebar';
 import avatar from "../user-avatar.png";
+import {getUsers} from "../actions/right-sidebar";
+import moment from 'moment';
 export class RightSideBar extends React.Component {
-    //componentDidMount () {
-    //    console.log("camel")
-    //    this.props.dispatch(fetchRoomNames(this.props));
-    //}
+    componentDidMount () {
+        console.log("camel")
+        this.props.dispatch(getUsers());
+    }
 
     render() {
-       //const members = this.props.members.map((user, i) => {
-       //     return <li key={i} className="member-info">
-       //             
-       //                 <h2>{user.username}</h2>                
-       //             </li>
-       // })
+        console.log(this.props);
+       const members = this.props.users.map((user, i) => {
+            return <li key={i} className="member-info">                    
+                        <h2>{user.username}</h2>
+                        <h4>Joined: {moment(user.joined).format("MMM Do YY")}</h4>               
+                    </li>
+        })
         return (
+            <div className="sidebar-right">
+            <div className="title">
+                <h2>Members Online</h2>
+            </div>
+            <ul className="members">
+            {members}
+            </ul>
+            </div>
+        )
+       {/*} return (
             <div className="sidebar-right">
             <div className="title">
                 <h2>Members Online</h2>
@@ -29,6 +42,7 @@ export class RightSideBar extends React.Component {
                 <div className="member-info">
                   <h2>Mike</h2>
                   <p>Joined: 3 days ago.</p>
+                  <p>Posts: </p>
                 </div>
               </div>
 
@@ -37,17 +51,34 @@ export class RightSideBar extends React.Component {
                 <div className="member-info">
                   <h2>Mike</h2>
                   <p>Joined: 3 days ago.</p>
+                  <p>Posts: </p>
                 </div>
               </div>
             </div>
           </div>
-        );
+        );*/}
     }
 }
 
-const mapStateToProps = state => ({
+{/*const mapStateToProps = state => ({
+    
     loggedIn: state.auth.currentUser !== null,
-    roomnames: state.chatData.rooms
-});
+    roomnames: state.chatData.rooms,
+    email: currentUser ? state.auth.currentUser.email : '',
+    username: currentUser ? state.auth.currentUser.username : '',
+    chatData: state.chatData.data
+});*/}
+
+const mapStateToProps = state => {
+    const {currentUser} = state.auth;
+    //console.log(currentUser);
+    return {
+        loggedIn: currentUser !== null,
+        email: currentUser ? state.auth.currentUser.email : '',
+        username: currentUser ? state.auth.currentUser.username : '',
+        chatData: state.chatData.data,
+        users: state.chatData.users
+    };
+};
 
 export default connect(mapStateToProps)(RightSideBar);

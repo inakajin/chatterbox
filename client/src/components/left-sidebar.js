@@ -5,6 +5,7 @@ import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import {fetchRoomNames} from '../actions/left-sidebar';
 import avatar from "../user-avatar.png";
+import moment from 'moment';
 export class LeftSideBar extends React.Component {
     componentDidMount () {
         console.log("camel")
@@ -16,9 +17,12 @@ export class LeftSideBar extends React.Component {
             return <li key={i} className="room-info">
                     <Link to={{ pathname: `/room/${room._id}`, name:room.roomname }}>
                         <h2>{room.roomname}</h2>
-                    </Link>
-                        
+                        <h4>Last updated: </h4>
+                        <h4> 
+                        {moment(room.lastUpdated).format('MMM Do, h:mm a')}  </h4>
+                    </Link>    
                     </li>
+                    
         })
         return (
             <div className="sidebar-left">

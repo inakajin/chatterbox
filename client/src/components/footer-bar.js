@@ -5,7 +5,7 @@ import {clearAuthToken} from '../local-storage';
 import avatar from "../user-avatar.png";
 import linkedin from '../public/img/linkedin.png';
 import facebook from '../public/img/facebook-icon.png';
-import googleplus from '../public/img/googleplusicon.png';
+import googleplus from '../public/img/googleplusicon.jpeg';
 import gmail from '../public/img/gmail.png';
 import github from '../public/img/github.png';
 

@@ -11,6 +11,9 @@ body{
     color: $body-color;
     font-size: 13px;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: $footer-height;
+    //min-height: 200px;
+    //position: relative;
 }
 
 *{
@@ -21,11 +24,13 @@ body{
 
 .app-chatter{
     display: flex;
-    flex-direction: column;
+    //flex: 1;
+   flex-direction: column;
+    //position: relative;
    
     .header{
         height: $header-height;
-        background-color: #008CBA;
+        background-color: #669999;
         color: white; 
         display: flex;
         flex-direction: row;
@@ -89,11 +94,13 @@ body{
     }
     .main{
         height: 100%;
+        min-height: calc(100vh - 50px);
         display: flex;
         overflow: hidden;
         .sidebar-left{
             border-right: 1px solid $border-color;
             width: $left-sidebar-width;
+            background-color:#A5C663;
             .title{
                 background-color: #DEDEDE;
                 background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
@@ -106,7 +113,7 @@ body{
                 list-style-type: none;
                 .room-info{
                     border: 1px solid gray;
-                    background-color:#556B2F;
+                    //background-color:#556B2F;
                     
                     a{
                         text-decoration: none;
@@ -122,7 +129,9 @@ body{
         }
         .sidebar-right{
             border-left: 1px solid $border-color;
-            width: $right-sidebar-width;
+            width: $left-sidebar-width;
+            background-color:#a5c663;
+            //height: 100%;
             .title{
                 background-color: #DEDEDE;
                 background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
@@ -133,18 +142,67 @@ body{
             }
             .members{
                 border: 1px solid gray;
-                background-color:#5F9EA0;
+                //background-color:#5F9EA0;
                 color: white;
             }
         }
-        .content, .dashboard, .home{
+        .content, .dashboard, .registration, .home{
             flex-grow: 1;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            padding: 10px;
+            background-color: #FFF8DC;
+            //text-align: center;
+            h2, p{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .block, .home{
+                text-align: center;
+                label, input{
+                    float: left;
+                }
+                label, button{
+                    clear: left;
+                    display: block;
+                }
+            }
+            .login-form{
+                //text-align: center;
+                
+                input{
+                    margin-bottom: 10px;
+                    height: 25px;
+                    font-size: 14px;
+                    background-color: rgb(250, 255, 189);
+                }
+                
+                button{
+                    font-family: Verdana, "Geneva", sans-serif;
+                    color: black;
+                    border: 0 none;
+                    padding-left: 3px;
+                    padding-right: 3px;
+                    font-size: 12px;
+                    width: 60px;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                    line-height: $header-height - 10px;  
+                    border: none;
+                    border-radius: 12px;
+                    background-color: #DEDEDE;
+                    background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+                    background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+                    background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+                    background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */        
+                }
+            }
             .messages{
                 flex-grow: 1;
             }
+            .chat-form{
+                
             .chatter-input{
                 border-top: 1px solid $border-color;
                 height: 50px;
@@ -152,182 +210,114 @@ body{
                 flex-direction: row;
                 .text-input{
                     flex-grow: 1;
+                    //vertical-align: middle;
                     textarea{
-                        border: 0 none;
+                        border: 1px solid gray;
+                        border-right: 0;
                         width: 100%;
                         height: 100%;
-                        padding: 8px 15px;
+                        //padding: 8px 15px;
+                        padding: 15px 0px 11px 8px;
+                        //background-color: rgb(250, 255, 189);
+                        //background-color: #FFFAF0;
+                        font-size: 16px;        
                     }
-
                 }
-                .actions{
-                    
+                .actions{                    
                     button.post{
                         background: $primary-color;
-                        color: #FFF;
-                        border: 0 none;
-                        padding: 7px 15px;
+                        height: 100%;
+                        border: 1px solid gray;
+                        border-left: 0;
+                        cursor: pointer;
+                        font-size: 16px;
+                        color: black;
+                        //vertical-align: middle;
+                        //padding: 7px 15px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                         line-height: 50px;
+                        background-color: #DEDEDE;
+                        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+                        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+                        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+                        background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */                                
                     }
                 }
             }
+            }
+            
                   
     
         }
-.footcontainer{
-    height: $footer-height;
-            //background-color: #008CBA;
-    color: black; 
-    display: flex;
-    flex-direction: row;
-    border-top: 1px solid $border-color;
-    font-style: italic;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #DEDEDE;
-    background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
-    vertical-align: middle;
-            .left{
-                width: $left-sidebar-width;
-                justify-content: flex-start;
-                .footertext {
-                vertical-align: middle;
-                //padding-top: 30px;  
-                line-height: $footer-height;
-                padding: 0 10px;
-                }
-            }
+       
+    }
+    .footercontainer{
+        height: auto;
+        margin: auto auto 0 auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        color: black; 
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid $border-color;
+        font-style: italic;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #DEDEDE;
+        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
+        vertical-align: middle;
             .right{
                 width: $right-sidebar-width;
                 justify-content: flex-end;
-                .footericons{
-                line-height: $footer-height;
-                display: flex;
-                justify-content: flex-end;
-                padding: 0 10px;
+                width: 50%;
+                    .footericons{
+                        line-height: $footer-height;
+                        display: flex;
+                        justify-content: flex-end;
+                        padding: 0 10px;
+                        //vertical-align: middle;
+                        .social-links{ 
+                            li {
+                            list-style-type: none;
+                            display: inline-block;
+                            text-align: center;
+                            vertical-align: middle;
+                            a{
+                            text-decoration: none;
+                            color: #335566;                
+                            a:visited { text-decoration: none; }
+                            a:hover { text-decoration: underline; }
+                            a:focus { text-decoration: none; }
+                            a:hover, a:active { text-decoration: underline; }
+                            }
+                            img{
+                                vertical-align: middle;
+                            }  
+                        }
+                    }
                 }
             }
-            .social-links{ 
-                li {
-                    list-style-type: none;
-                    //display: inline-block;
-                    text-align: center;
+            .left{
+                width: $left-sidebar-width;
+                justify-content: flex-start;
+                width:50%;
+                .footertext {
                     vertical-align: middle;
-                    a{
-                        text-decoration: none;
-                        color: #335566;
-                      
-                      a:visited { text-decoration: none; }
-                      a:hover { text-decoration: underline; }
-                      a:focus { text-decoration: none; }
-                      a:hover, a:active { text-decoration: underline; }
-                      }  
+                    //padding-top: 30px;  
+                    line-height: $footer-height;
+                    padding: 0 10px;
                     }
             }
-        }        
     }
+
 }
 
-.messages{
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;  
-    height: 100%;
-    .message{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin: 15px 0;
-        padding-top: 25px;
-        padding-bottom: 10px;
-        .message-user-image{
-            img{
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-            }
-        }
-        .message-body{
-            padding-left: 10px;
-            .message-author{
 
-            }
-            .message-text{
-                background: $body-color;
-                color: #FFF;
-                padding: 10px;
-                border-radius: 10px;
-            }
-        }
-        &.me{
-            justify-content: flex-start;
-            .message-body{
-                .message-text{
-                    background: $primary-color;
-                    color: #FFF;
-                }
-            }
-        }
-    }
-}
 
-.rooms{
 
-    .room{
-        display: flex;
-        border-bottom: 1px solid $border-color;
-        padding: 8px 0;
-        .user-image{
-            width: 30px;
-            img{
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-            }
-        }
-        .room-info{
-            flex-grow: 1;
-            padding-left: 8px;
-            h2{
-                font-size: 14px;
-                font-weight: 600;
-            }
-            p{
-                font-size: 12px;
-            }
-        }
-    }
-}
-.members{
-
-    .member{
-        display: flex;
-        border-bottom: 1px solid $border-color;
-        padding: 8px 0;
-        .user-image{
-            width: 30px;
-            img{width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            }
-        }
-
-        .member-info{
-            padding-left: 8px;
-            flex-grow: 1;
-            h2{
-                font-size: 14px;
-            }
-            p{
-                font-size: 12px;
-            }
-        }
-    }
-}
-h2.title{
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-}

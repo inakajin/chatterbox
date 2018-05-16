@@ -171,20 +171,11 @@ class Chatter extends Component {
               })}
             
             
-            <Add roomId={this.props.match.params.roomid} socket={this.state.socket} />
-            {/* <div className="chatter-input">
-                    
-                        <div className="text-input">
-                            <textarea placeholder="Write your message....." />
-                        </div>
-                        <div className="actions">
-                            <button className="post">Post</button>
-                            
-                        </div>
-                </div>*/}
+            {/*<Add roomId={this.props.match.params.roomid} socket={this.state.socket} />*/}
+            
           </div>
           {/*<Members />*/}
-          
+          <Add roomId={this.props.match.params.roomid} socket={this.state.socket} />
         </div>
     //  </div>
     );

@@ -47,22 +47,35 @@ export class Add extends React.Component {
         //}
 
         return (
+            /* <div className="chatter-input">
+                    
+                        <div className="text-input">
+                            <textarea placeholder="Write your message....." />
+                        </div>
+                        <div className="actions">
+                            <button className="post">Post</button>
+                            
+                        </div>
+                </div>*/
+            
             <form
-                className="login-form"
+                className="chat-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
                 <br />
-                
-                
-                  <label htmlFor="journal">Journal</label>
-                  <br />
-                    <Field name="chat" component="textarea" type="textarea" />
+                <div className="chatter-input">
+                <div className="text-input">          
+                    <Field name="chat" component="textarea" type="textarea" placeholder="Enter new message....." />
                 <br />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                </div>
+                <div className="actions">
+                <button className="post" disabled={this.props.pristine || this.props.submitting}>
                     Submit
                 </button>
+                </div>
+                </div>
             </form>
         );
     }

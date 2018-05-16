@@ -20,11 +20,14 @@ router.post('/register', jsonParser, UsersController.register);
 //Login User
 router.post('/login', passport.authenticate('basic', {session: false}), AuthController.login);
 
+//Retrieve users
+router.get('/getusers', jsonParser, UsersController.getUsers);
+
 //Refresh Token
 router.post('/refresh', passport.authenticate('jwt', {session: false}), AuthController.refresh);
 
 //Add Entry
-router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser],UsersController.addEntry);
+router.post('/add', [passport.authenticate('jwt', {session: false}), jsonParser], UsersController.addEntry);
 
 //Get Chat History
 //router.get('/getchathistory', [passport.authenticate('jwt', {session: false}), jsonParser],EntryController.getchathistory);

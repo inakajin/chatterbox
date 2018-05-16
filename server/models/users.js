@@ -24,7 +24,9 @@ const UserSchema = mongoose.Schema({
 UserSchema.methods.apiRepr = function() {
     return {
         email: this.email || '',
-        id: this._id || ''
+        id: this._id || '',
+        username: this.username || '',
+        joined: this.joined || ''
     };
 };
 

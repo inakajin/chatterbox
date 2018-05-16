@@ -20,11 +20,9 @@ export class Dashboard extends React.Component {
             <div className="dashboard">
                 <br />
                 <div className="dashboard-username">
-                    Email: {this.props.email}
+                    <h2>Welcome, {this.props.username}.</h2>
                 </div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.chatData}
-                </div>
+                
                 <br />
                 {/*<Link to="/add">Add Entry</Link>*/}
               
@@ -40,6 +38,7 @@ const mapStateToProps = state => {
     return {
         loggedIn: currentUser !== null,
         email: currentUser ? state.auth.currentUser.email : '',
+        username: currentUser ? state.auth.currentUser.username : '',
         chatData: state.chatData.data
     };
 };

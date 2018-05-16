@@ -4,11 +4,14 @@ import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import avatar from "../user-avatar.png";
 import { createRoom } from "../actions/rooms";
+import { Link, Redirect } from "react-router-dom";
 export class HeaderBar extends React.Component {
     logOut() {
         this.props.dispatch(setCurrentUser(null));
         this.props.dispatch(setAuthToken(null));
         clearAuthToken();
+        console.log(this.props);
+        
     }
 
     newroom = () => {
@@ -19,10 +22,19 @@ export class HeaderBar extends React.Component {
 
     render() {
         // Only render the log out button if we are logged in
+        if (!this.props.loggedIn) {
+            return <Redirect to="/" />;
+        }
+
         let logOutButton;
+        
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Logout</button>
+                
+                <button onClick={() => this.logOut()}>Logout
+                
+                </button>
+                
             );
         }
 
@@ -54,7 +66,7 @@ export class HeaderBar extends React.Component {
                 </div>
                 <div className="right">
                     <div className="user-bar">
-                        <div className="profile-name">Mike                        
+                        <div className="profile-name">                        
                         {logOutButton} 
                         </div>
                         

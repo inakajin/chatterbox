@@ -58,14 +58,14 @@ export class App extends React.Component {
                 <div className="main">
                     
                         <LeftSideBar />
-                    
+                        
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
                     <Route exact path="/add" component={Add} />
                     <Route exact path="/room/:roomid" component={Chatter} />
                     
-                        <RightSideBar />
+                    <RightSideBar /> 
                     
                 </div>
                 <FooterBar />                

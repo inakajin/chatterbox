@@ -12,7 +12,8 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Welcome to Foo App</h2>
+            <h2>Welcome to chatterBox</h2>
+            <p>Create a room and chat with your friends.</p>
             <LoginForm />
             <Link to="/register">Register</Link>
         </div>
