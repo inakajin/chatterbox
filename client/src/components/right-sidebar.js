@@ -5,18 +5,31 @@ import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import {fetchRoomNames} from '../actions/left-sidebar';
 import avatar from "../user-avatar.png";
-import {getUsers} from "../actions/right-sidebar";
+import {getUsers, refreshUserData} from "../actions/right-sidebar";
 import moment from 'moment';
+import io from "socket.io-client";
+import { API_BASE_URL } from "../config";
+
+
+//let users = [];
 export class RightSideBar extends React.Component {
     componentDidMount () {
         console.log("camel")
         this.props.dispatch(getUsers());
+        var socket = io.connect(API_BASE_URL);
+       /* socket.on("activeusers", function(users) {
+            console.log(users)
+            users = users
+        })*/
+        this.props.dispatch(refreshUserData(socket));
     }
 
     render() {
         console.log(this.props);
-       const members = this.props.users.map((user, i) => {
-            return <li key={i} className="member-info">                    
+        const members = this.props.users.map((user, i) => {
+           console.log(user);
+          
+            return <li key={i} className={"member-info " + (user.active ? 'show' : 'hidden')}>                   
                         <h2>{user.username}</h2>
                         <h4>Joined: {moment(user.joined).format("MMM Do YY")}</h4>               
                     </li>
@@ -31,32 +44,8 @@ export class RightSideBar extends React.Component {
             </ul>
             </div>
         )
-       {/*} return (
-            <div className="sidebar-right">
-            <div className="title">
-                <h2>Members Online</h2>
-            </div>
-            <div className="members">
-              <div className="member">
-                
-                <div className="member-info">
-                  <h2>Mike</h2>
-                  <p>Joined: 3 days ago.</p>
-                  <p>Posts: </p>
-                </div>
-              </div>
-
-              <div className="member">
-                
-                <div className="member-info">
-                  <h2>Mike</h2>
-                  <p>Joined: 3 days ago.</p>
-                  <p>Posts: </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );*/}
+       
+        
     }
 }
 

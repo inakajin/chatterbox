@@ -18,8 +18,18 @@ exports = module.exports = function (io) {
 //io = io.listen(server);
 
 // handle incoming connections from clients
+var users = [];
 io.on('connection', function(socket) {
 console.log("connected");
+
+socket.on('active', function(data){
+  console.log('a user ' + data + ' connected');
+  //saving userId to array with socket ID
+  users.push(data);
+  console.log(users);
+  socket.broadcast.emit("activeusers", users);
+});
+
 
 //io.of('/room').clients((error, clients => {
 //  if (error) throw error;
@@ -29,7 +39,7 @@ console.log("connected");
     socket.on('room', function(data) {
       let room = data.room;
       let user = data.user;
-      console.log("hulahoop",room, user, "baseball");
+      //console.log("hulahoop",room, user, "baseball");
         socket.join(room);
         //io.of('/').in(room).clients((error, clients) => {
         //  if (error) throw error;
@@ -42,6 +52,9 @@ console.log("connected");
         })
     });
     socket.emit("user", "hello world")
+    socket.on('disconnect', function(){
+      console.log('user ' + users[socket.id] + ' disconnected');
+    });
 });
 
 // now, it's easy to send a message to just the clients in a given room

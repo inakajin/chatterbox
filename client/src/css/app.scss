@@ -11,7 +11,7 @@ body{
     color: $body-color;
     font-size: 13px;
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: $footer-height;
+    margin-bottom: $header-height;
     //min-height: 200px;
     //position: relative;
 }
@@ -34,15 +34,19 @@ body{
         color: white; 
         display: flex;
         flex-direction: row;
+        //position: absolute;
+        //width: 100%;
         border-bottom: 1px solid $border-color;
         button{
             font-family: Verdana, "Geneva", sans-serif;
             border: 0 none;
-            padding-left: 3px;
-            padding-right: 3px;
-            font-size: 16px;
+            
+            //padding-left: 3px;
+            //padding-right: 3px;
+            padding: 15px;
+            font-size: 12px;
             cursor: pointer;
-            line-height: $header-height - 10px;  
+            //line-height: $header-height - 10px;  
             border: none;
             border-radius: 12px;
             background-color: #DEDEDE;
@@ -66,6 +70,7 @@ body{
                 text-align: center;
                 font-size: 24px;
             }
+            
 
         }
         .right{
@@ -108,13 +113,55 @@ body{
                 background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
                 background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
                 color: black;
+                padding: 10px;
             }
             .rooms{
                 list-style-type: none;
+                border: 1px solid gray;
+                
                 .room-info{
                     border: 1px solid gray;
+                    padding: 10px;
                     //background-color:#556B2F;
+                    a{
+                        text-decoration: none;
+                        color: white;
+                          a:visited { text-decoration: none; }
+                          a:hover { text-decoration: underline; }
+                          a:focus { text-decoration: none; }
+                          a:hover, a:active { text-decoration: underline; }
+                          //li.selected { background-color: purple; }
+                          
+                    }
                     
+                }
+            }
+            
+        }
+        .sidebar-right{
+            border-left: 1px solid $border-color;
+            width: $left-sidebar-width;
+            //background-color:#a5c663;
+            background-color: #FFF8DC;
+            //height: 100%;
+            .title{
+                background-color: #DEDEDE;
+                background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
+                color: black;
+                padding: 10px;
+            }
+            .members{
+                border: 1px solid gray;
+                //background-color:#5F9EA0;
+
+                color: white;
+                .member-info{
+                    border: 1px solid gray;
+                    padding: 10px;
+                    //background-color:#556B2F;
                     a{
                         text-decoration: none;
                         color: white;
@@ -125,25 +172,6 @@ body{
                           
                     }
                 }
-            }
-        }
-        .sidebar-right{
-            border-left: 1px solid $border-color;
-            width: $left-sidebar-width;
-            background-color:#a5c663;
-            //height: 100%;
-            .title{
-                background-color: #DEDEDE;
-                background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
-                background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
-                background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
-                background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
-                color: black;
-            }
-            .members{
-                border: 1px solid gray;
-                //background-color:#5F9EA0;
-                color: white;
             }
         }
         .content, .dashboard, .registration, .home{
@@ -188,7 +216,8 @@ body{
                     width: 60px;
                     cursor: pointer;
                     margin-bottom: 10px;
-                    line-height: $header-height - 10px;  
+                    line-height: $header-height - 10px; 
+                    //height: 40px; 
                     border: none;
                     border-radius: 12px;
                     background-color: #DEDEDE;
@@ -252,6 +281,43 @@ body{
         }
        
     }
+    .messages{
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;  
+        height: 100%;
+        .message{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin: 15px 0;
+            padding-top: 25px;
+            padding-bottom: 10px;
+            
+            }
+            .message-body{
+                padding-left: 10px;
+                .message-author{
+    
+                }
+                .message-text{
+                    background: $body-color;
+                    color: #FFF;
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+            }
+            &.me{
+                justify-content: flex-start;
+                .message-body{
+                    .message-text{
+                        background: $primary-color;
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    
     .footercontainer{
         height: auto;
         margin: auto auto 0 auto;

@@ -14,7 +14,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-
+    console.log(action.type);
     switch (action.type) {
         case FETCH_PROTECTED_DATA_SUCCESS: {
             console.log(action, state)
@@ -42,6 +42,27 @@ export default function reducer(state = initialState, action) {
                 messages: newMsg
             }
         }
+
+        case 'REALTIME_USERS': {
+            console.log(action, state)
+            let activeusers = state.users.map((user)=>{
+                if(action.payload.indexOf(user._id) > -1 ){
+                     user['active'] = true;
+                }
+                return user;
+             })
+             console.log(activeusers)
+            //var arr = state.users.filter(function(item){
+            //    return action.payload.indexOf(item.id) === -1;
+            //  });
+            return {
+                ...state,
+                users: activeusers
+            }
+        }
+
+        //case @@redux-form/SET_SUBMIT_SUCCEEDED
+
         case 'FETCH_ROOMNAMES': {
             console.log(action, state)
             return {

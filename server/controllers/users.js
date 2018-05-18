@@ -149,7 +149,7 @@ function lastUpdated (req, res, next) {
     console.log("veggie");
     Room.update({
         _id: req.body.roomId
-    }, {$set:{lastUpdated:new Date()}},{upsert: true}, function(doc, err){
+    }, {$set:{lastUpdated:new Date()}}, function(doc, err){
         console.log(doc, err);
     })
 }

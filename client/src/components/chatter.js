@@ -37,8 +37,10 @@ class Chatter extends Component {
   }
 
   componentWillReceiveProps(props) { 
+    var socket = io.connect(API_BASE_URL);
       console.log('componentWillReceiveProps')
-      console.log(this.props) 
+      console.log(this.props)
+      socket.emit("active", this.props.currentUser.id) 
       console.log(props.location.pathname, this.props.location.pathname);
       if(props.location.pathname !== this.props.location.pathname) {
           this.props.dispatch(fetchChatData(props.match.params.roomid))
@@ -147,7 +149,7 @@ class Chatter extends Component {
           
           {/*<Rooms />*/}
           
-          
+            
             <div className="messages">
               {messages.map((message, index) => {
                 return (
@@ -155,9 +157,7 @@ class Chatter extends Component {
                     key={index}
                     className={classNames("message", { me: message.me })}
                   >
-                    <div className="message-user-image">
-                      <img src={message.avatar} alt="" />
-                    </div>
+                    
                     <div className="message-body">
                       <div className="message-author">
                         {message.me ? "You " : message.author} say:

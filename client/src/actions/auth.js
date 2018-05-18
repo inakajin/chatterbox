@@ -51,7 +51,11 @@ export const login = (username, password) => dispatch => {
             // errors which follow a consistent format
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
-            .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+            .then(({authToken}) => {
+                storeAuthInfo(authToken, dispatch)
+                console.log(authToken, username);
+            
+            })
             .catch(err => {
                 const {code} = err;
                 if (code === 401) {

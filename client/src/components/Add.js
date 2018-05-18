@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm, focus, reset} from 'redux-form';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { add } from '../actions/auth';
@@ -30,7 +30,15 @@ export class Add extends React.Component {
         };
         console.log(submission);
         return this.props.dispatch(sendEntry(submission, this.props.socket));
+        
     }
+
+    handleKeyDown = function (e, cb) {
+        if (e.key === 'Enter' && e.shiftKey === false) {
+          e.preventDefault();
+          cb();
+        }
+      };
 
     render() {
         let error;
@@ -40,29 +48,22 @@ export class Add extends React.Component {
                     {this.props.error}
                 </div>
             );
+            
         }
-
+        const handleSubmit = this.props.handleSubmit(values =>
+            this.onSubmit(values),
+            console.log(this),
+            
+            //this.props.clearSubmit()
+        );
         //if (!this.props.loggedIn) {
-        //    return <Redirect to="/" />;
-        //}
 
         return (
-            /* <div className="chatter-input">
-                    
-                        <div className="text-input">
-                            <textarea placeholder="Write your message....." />
-                        </div>
-                        <div className="actions">
-                            <button className="post">Post</button>
-                            
-                        </div>
-                </div>*/
             
             <form
                 className="chat-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
+                onSubmit={handleSubmit}
+                onKeyDown={(e) => { this.handleKeyDown(e, handleSubmit); }}>
                 {error}
                 <br />
                 <div className="chatter-input">
@@ -71,7 +72,7 @@ export class Add extends React.Component {
                 <br />
                 </div>
                 <div className="actions">
-                <button className="post" disabled={this.props.pristine || this.props.submitting}>
+                <button type="submit" className="post" disabled={this.props.pristine || this.props.submitting}>
                     Submit
                 </button>
                 </div>

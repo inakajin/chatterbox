@@ -2,6 +2,7 @@ import axios from 'axios';
 //import * as io from 'socket.io-client'; 
 //var socket = io('http://localhost:3000'); 
 import {API_BASE_URL} from '../config';
+import {reset} from 'redux-form';
 
 //console.log(io);
 
@@ -32,8 +33,9 @@ export const sendEntry = (chat, socket) => (dispatch, getState) => {
         console.log(response);
         console.log(chat);
         socket.emit('message', chat.body);
+        dispatch(reset("add"));
         //let room = chat.roomId;
       //  socket.emit('add chat', chat);
-
+      //this.props.resetForm();
       })
 }

@@ -33,7 +33,21 @@ export const getUsers = () => (dispatch, getState) => {
         });
 };
 
-
+export const refreshUserData = (socket) => {
+    return (dispatch) => {
+      console.log('mango');
+      socket.removeListener('activeusers');
+      socket.on('activeusers', function(response) {
+        console.log('peach');
+        console.log(response);
+        dispatch({
+          type: 'REALTIME_USERS',
+          payload: response,
+          //time: time
+        })
+      });
+    }
+  }
 
 export const refreshData = (socket) => {
     return (dispatch) => {

@@ -17,7 +17,10 @@ export class HeaderBar extends React.Component {
     newroom = () => {
         let roomname = prompt("Enter Room Name", "default");
         console.log(roomname);
-        this.props.dispatch(createRoom(roomname));
+        if (roomname){
+            this.props.dispatch(createRoom(roomname));
+        }
+        
       };
 
     render() {

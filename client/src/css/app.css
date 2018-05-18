@@ -8,7 +8,7 @@ body {
   color: #636e72;
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
-  margin-bottom: 50px; }
+  margin-bottom: 75px; }
 
 * {
   box-sizing: border-box;
@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column; }
   .app-chatter .header {
-    height: 50px;
+    height: 75px;
     background-color: #669999;
     color: white;
     display: flex;
@@ -28,11 +28,9 @@ body {
     .app-chatter .header button {
       font-family: Verdana, "Geneva", sans-serif;
       border: 0 none;
-      padding-left: 3px;
-      padding-right: 3px;
-      font-size: 16px;
+      padding: 15px;
+      font-size: 12px;
       cursor: pointer;
-      line-height: 40px;
       border: none;
       border-radius: 12px;
       background-color: #DEDEDE;
@@ -47,19 +45,19 @@ body {
     .app-chatter .header .left {
       width: 200px; }
       .app-chatter .header .left .actions {
-        line-height: 50px;
+        line-height: 75px;
         padding: 0 10px; }
     .app-chatter .header .content {
       flex-grow: 1;
       overflow: hidden; }
       .app-chatter .header .content h2 {
-        line-height: 50px;
+        line-height: 75px;
         text-align: center;
         font-size: 24px; }
     .app-chatter .header .right {
       width: 300px; }
       .app-chatter .header .right .user-bar {
-        line-height: 50px;
+        line-height: 75px;
         display: flex;
         justify-content: flex-end;
         padding: 0 10px; }
@@ -90,11 +88,14 @@ body {
         /* For Firefox 3.6 to 15 */
         background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
         /* Standard syntax */
-        color: black; }
+        color: black;
+        padding: 10px; }
       .app-chatter .main .sidebar-left .rooms {
-        list-style-type: none; }
+        list-style-type: none;
+        border: 1px solid gray; }
         .app-chatter .main .sidebar-left .rooms .room-info {
-          border: 1px solid gray; }
+          border: 1px solid gray;
+          padding: 10px; }
           .app-chatter .main .sidebar-left .rooms .room-info a {
             text-decoration: none;
             color: white; }
@@ -109,7 +110,7 @@ body {
     .app-chatter .main .sidebar-right {
       border-left: 1px solid rgba(0, 0, 0, 0.05);
       width: 200px;
-      background-color: #a5c663; }
+      background-color: #B9B3BA; }
       .app-chatter .main .sidebar-right .title {
         background-color: #DEDEDE;
         background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
@@ -120,10 +121,25 @@ body {
         /* For Firefox 3.6 to 15 */
         background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
         /* Standard syntax */
-        color: black; }
+        color: black;
+        padding: 10px; }
       .app-chatter .main .sidebar-right .members {
         border: 1px solid gray;
         color: white; }
+        .app-chatter .main .sidebar-right .members .member-info {
+          border: 1px solid gray;
+          padding: 10px; }
+          .app-chatter .main .sidebar-right .members .member-info a {
+            text-decoration: none;
+            color: white; }
+            .app-chatter .main .sidebar-right .members .member-info a a:visited {
+              text-decoration: none; }
+            .app-chatter .main .sidebar-right .members .member-info a a:hover {
+              text-decoration: underline; }
+            .app-chatter .main .sidebar-right .members .member-info a a:focus {
+              text-decoration: none; }
+            .app-chatter .main .sidebar-right .members .member-info a a:hover, .app-chatter .main .sidebar-right .members .member-info a a:active {
+              text-decoration: underline; }
     .app-chatter .main .content, .app-chatter .main .dashboard, .app-chatter .main .registration, .app-chatter .main .home {
       flex-grow: 1;
       overflow: hidden;
@@ -156,7 +172,7 @@ body {
         width: 60px;
         cursor: pointer;
         margin-bottom: 10px;
-        line-height: 40px;
+        line-height: 65px;
         border: none;
         border-radius: 12px;
         background-color: #DEDEDE;
@@ -204,6 +220,30 @@ body {
           /* For Firefox 3.6 to 15 */
           background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
           /* Standard syntax */ }
+  .app-chatter .messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%; }
+    .app-chatter .messages .message {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin: 15px 0;
+      padding-top: 25px;
+      padding-bottom: 10px; }
+    .app-chatter .messages .message-body {
+      padding-left: 10px; }
+      .app-chatter .messages .message-body .message-text {
+        background: #636e72;
+        color: #FFF;
+        padding: 10px;
+        border-radius: 10px; }
+    .app-chatter .messages.me {
+      justify-content: flex-start; }
+      .app-chatter .messages.me .message-body .message-text {
+        background: #00cec9;
+        color: #FFF; }
   .app-chatter .footercontainer {
     height: auto;
     margin: auto auto 0 auto;

@@ -11,10 +11,12 @@ export class Dashboard extends React.Component {
 
     render() {
        //  Only visible to logged in users
+       
         if (!this.props.loggedIn) {
             return <Redirect to="/" />;
         }
-        
+        console.log(this.props);
+        //socket.emit("active")
         return (
             
             <div className="dashboard">

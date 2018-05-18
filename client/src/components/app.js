@@ -56,16 +56,17 @@ export class App extends React.Component {
             <div className="app-chatter">
                 <HeaderBar />
                 <div className="main">
-                    
-                        <LeftSideBar />
-                        
+                    <div className="left-align">
+                    <RightSideBar />
+                    <LeftSideBar />
+                     </div>   
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
                     <Route exact path="/add" component={Add} />
                     <Route exact path="/room/:roomid" component={Chatter} />
                     
-                    <RightSideBar /> 
+                     
                     
                 </div>
                 <FooterBar />                

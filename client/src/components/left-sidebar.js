@@ -6,6 +6,8 @@ import {clearAuthToken} from '../local-storage';
 import {fetchRoomNames} from '../actions/left-sidebar';
 import avatar from "../user-avatar.png";
 import moment from 'moment';
+//import {getUsers} from "../actions/right-sidebar";
+//import { getUsers } from '../../../server/controllers/users';
 export class LeftSideBar extends React.Component {
     componentDidMount () {
         console.log("camel")
