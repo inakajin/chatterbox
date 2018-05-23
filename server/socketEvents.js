@@ -47,8 +47,10 @@ socket.on('active', function(data){
         //}); 
         io.sockets.in(room).emit('userid', user);
         socket.on('message', function(message) {
-          console.log('frisbee', message)
-          io.sockets.in(room).emit('message', message);
+          console.log('frisbee', message, data.user);
+          let obj = {message: message, username: data.user.currentUser.username};
+          //message.currentUser = data.user.currentUser;
+          io.sockets.in(room).emit('message', obj);
         })
     });
     socket.emit("user", "hello world")

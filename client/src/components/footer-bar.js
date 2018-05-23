@@ -4,10 +4,11 @@ import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import avatar from "../user-avatar.png";
 import linkedin from '../public/img/linkedin.png';
-import facebook from '../public/img/facebook-icon.png';
-import googleplus from '../public/img/googleplusicon.jpeg';
+//import facebook from '../public/img/facebook-icon.png';
+//import googleplus from '../public/img/googleplusicon.jpeg';
 import gmail from '../public/img/gmail.png';
 import github from '../public/img/github.png';
+import Add from "./Add";
 
 
 export class FooterBar extends React.Component {
@@ -25,8 +26,6 @@ export class FooterBar extends React.Component {
                     <div className="footertext">
                         <p>Created by Mike Dickerson.</p>
                     </div>
-                </div>
-                <div className="right">
                     <div className="footericons">		
                         <ul className="social-links">
                             <li className="social-list">
@@ -34,16 +33,7 @@ export class FooterBar extends React.Component {
                                 <img className="social-images" src={linkedin} alt="linkedin logo" />
                                 </a>
                             </li>
-                            <li className="social-list">
-                                <a href="https://www.facebook.com/mike.dickerson.1422" target="_blank" aria-label="This is a link Mike Dickerson's Facebook profile">
-                                <img className="social-images" src={facebook} alt="facebook logo" />
-                                </a>
-                            </li>
-                            <li className="social-list">
-                                <a href="https://plus.google.com/u/1/112774374102749420649?pageId=none" target="_blank" aria-label="This is a link Mike Dickerson's Google Plus Profile">
-                                <img className="social-images" src={googleplus} alt="google plus logo" />
-                                </a>
-                            </li>
+                            
                             <li className="social-list">
                                 <a href="mailto:inakajin@gmail.com" target="_top" aria-label="This is a link that open an email to Mike Dickerson">
                                 <img className="social-images" src={gmail} alt="gmail logo" />
@@ -56,6 +46,9 @@ export class FooterBar extends React.Component {
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div className="right">
+                    
                 </div>
             </footer>
 

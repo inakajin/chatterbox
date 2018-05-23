@@ -35,7 +35,7 @@ export default function reducer(state = initialState, action) {
         case 'REALTIME_REFRESH': {
             console.log(action, state)
             let newMsg = [...state.messages]
-            newMsg.push({body: action.payload})
+            newMsg.push({body: action.payload.message, username: action.payload.username})
             console.log(newMsg)
             return {
                 ...state,

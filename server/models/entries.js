@@ -6,6 +6,7 @@ const EntrySchema = new Schema({
     date: String,
     location: Object,
     userId: String,
+    username: String,
     roomId: String
 });
 

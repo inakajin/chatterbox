@@ -9,6 +9,8 @@ import { connect } from "react-redux";
 import { fetchChatData, refreshData } from "../actions/chat-data";
 import io from "socket.io-client";
 import { API_BASE_URL } from "../config";
+//import FooterBar from './footer-bar';
+
 console.log(avatar);
 class Chatter extends Component {
   constructor(props) {
@@ -155,12 +157,13 @@ class Chatter extends Component {
                 return (
                   <div
                     key={index}
-                    className={classNames("message", { me: message.me })}
-                  >
+                    //className={classNames("message", { me: message.me })}
+                    className={"message " + (this.props.currentUser.id == message.userId ? 'me' : '')}
+                    >
                     
                     <div className="message-body">
                       <div className="message-author">
-                        {message.me ? "You " : message.author} say:
+                        {message.username} says:
                       </div>
                       <div className="message-text">
                         <p>{message.body}</p>
@@ -176,7 +179,8 @@ class Chatter extends Component {
           </div>
           {/*<Members />*/}
           <Add roomId={this.props.match.params.roomid} socket={this.state.socket} />
-        </div>
+            
+          </div>
     //  </div>
     );
   }

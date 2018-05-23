@@ -137,6 +137,7 @@ exports.addEntry = function(req, res, next) {
     console.log(req.body, req.params);
     let entry = new Entry(req.body);
     entry['userId'] = req.user.id;
+    entry['username'] = req.user.username;
     entry.save();
     lastUpdated(req, res, next);
     return res.json({
