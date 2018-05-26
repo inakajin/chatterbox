@@ -11,9 +11,6 @@ body{
     color: $body-color;
     font-size: 13px;
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: $header-height;
-    //min-height: 200px;
-    //position: relative;
 }
 
 *{
@@ -24,76 +21,96 @@ body{
 
 .app-chatter{
     display: flex;
-    //flex: 1;
    flex-direction: column;
-    //position: relative;
    
     .header{
         height: $header-height;
+        @include tablet {
+            height: $header-height-tablet;
+          }
+        
+          @include desktop {
+            height: $header-height-desktop;
+          }        
         background-color: #669999;
         color: white; 
         display: flex;
         flex-direction: row;
-        //position: absolute;
-        //width: 100%;
         border-bottom: 1px solid $border-color;
+        
         button{
             font-family: Verdana, "Geneva", sans-serif;
             border: 0 none;
-            
-            //padding-left: 3px;
-            //padding-right: 3px;
-            padding: 15px;
-            font-size: 12px;
-            cursor: pointer;
-            //line-height: $header-height - 10px;  
+            padding: 9px;
+            font-size: 8px;
+            cursor: pointer; 
             border: none;
             border-radius: 12px;
             background-color: #DEDEDE;
             background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
             background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
             background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
-            background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */        
+            background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
+            @include tablet {
+                font-size: 10px;
+                padding: 12px;
+              }
+            
+              @include desktop {
+                font-size: 12px;
+                padding: 15px;
+              }       
         }
         .left{
-            width: $left-sidebar-width;
+            //width: $left-sidebar-width;
+            width: auto;
             .actions{
                 line-height: $header-height;
-                padding: 0 10px;                
+                padding: 0 10px;
+                @include tablet {
+                    line-height: $header-height-tablet;
+                  }
+                
+                  @include desktop {
+                    line-height: $header-height-desktop;
+                  }                
             }
         }
         .content{
             flex-grow: 1;
             overflow: hidden;
+            width: auto;
             h2{
                 line-height: $header-height;
                 text-align: center;
-                font-size: 24px;
+                font-size: 12px;
+                @include tablet {
+                    font-size: 18px;
+                    line-height: $header-height-tablet;
+                  }
+                
+                  @include desktop {
+                    font-size: 24px;
+                    line-height: $header-height-desktop;
+                  }
             }
             
 
         }
         .right{
-            width: $right-sidebar-width;
+            width: auto;
             .user-bar{
                 line-height: $header-height;
                 display: flex;
                 justify-content: flex-end;
                 padding: 0 10px;
-                .profile-name{
-                    padding-right: 10px;
-                    font-size: 16px;
-                }
-                .profile-image{
-                    img{
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 50%;
-                        margin: 10px 0 0 0;
+                @include tablet {
+                    line-height: $header-height-tablet;
+                  }
                 
-                    }   
-                }
-                
+                  @include desktop {
+                    line-height: $header-height-desktop;
+                  }                
             }
         }
     }
@@ -102,9 +119,26 @@ body{
         min-height: calc(100vh - 50px);
         display: flex;
         overflow: hidden;
+        .left-align{
+            width: $left-sidebar-width;
+            background-color: whitesmoke;
+            @include tablet {
+                width: $left-sidebar-width-tablet;
+              }
+            
+              @include desktop {
+                width: $left-sidebar-width-desktop;
+              }
         .sidebar-left{
             border-right: 1px solid $border-color;
             width: $left-sidebar-width;
+            @include tablet {
+                width: $left-sidebar-width-tablet;
+              }
+            
+              @include desktop {
+                width: $left-sidebar-width-desktop;
+              }
             background-color:#A5C663;
             .title{
                 background-color: #DEDEDE;
@@ -113,16 +147,55 @@ body{
                 background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
                 background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
                 color: black;
-                padding: 10px;
+                padding: 6px;
+                font-size: 8px;
+                @include tablet {
+                    padding: 8px;
+                    font-size: 10px;
+                  }
+                
+                  @include desktop {
+                    padding: 10px;
+                    font-size: 12px;
+                  }
             }
             .rooms{
                 list-style-type: none;
                 border: 1px solid gray;
+                max-height: 45%;
+                overflow-y: scroll;
                 
                 .room-info{
                     border: 1px solid gray;
-                    padding: 10px;
-                    //background-color:#556B2F;
+                    padding: 6px;
+                        @include tablet {
+                            padding: 8px;
+                        }
+                
+                        @include desktop {
+                            padding: 10px;
+                        }
+                        h2{
+                            font-size: 10px;
+                            @include tablet {
+                               font-size: 12px;
+                             }
+                           
+                             @include desktop {
+                               font-size: 14px;
+                             } 
+                         }
+   
+                         h4{
+                           font-size: 8px;
+                           @include tablet {
+                              font-size: 10px;
+                            }
+                          
+                            @include desktop {
+                              font-size: 12px;
+                            } 
+                        }
                     a{
                         text-decoration: none;
                         color: white;
@@ -131,8 +204,13 @@ body{
                           a:focus { text-decoration: none; }
                           a:hover, a:active { text-decoration: underline; }
                           //li.selected { background-color: purple; }
-                          
+                          &--active {
+                            color: black;
+                          } 
                     }
+                    &--active {
+                        background-color:purple;
+                      }
                     
                 }
             }
@@ -141,26 +219,53 @@ body{
         .sidebar-right{
             border-left: 1px solid $border-color;
             width: $left-sidebar-width;
-            //background-color:#a5c663;
-            //background-color: #FFF8DC;
-            //height: 100%;
+            @include tablet {
+                width: $left-sidebar-width-tablet;
+              }
+            
+              @include desktop {
+                width: $left-sidebar-width-desktop;
+              }
+           
             .circle{
-                -webkit-border-radius:18px;
-                -moz-border-radius:18px;
-                border-radius:18px;
+                -webkit-border-radius:10px;
+                -moz-border-radius:10px;
+                border-radius:10px;
                 border:1px solid #ccc;
-                width:18px;
-                height:18px;
+                width:10px;
+                height:10px;
                 display: inline-block;
                 margin-left: 15px;
-                .show {
-                    background-color: green;  
+                background-color: red; 
+                @include tablet {
+                -webkit-border-radius:12px;
+                -moz-border-radius:12px;
+                border-radius:12px;
+                border:1px solid #ccc;
+                width:12px;
+                height:12px;
+                display: inline-block;
+                margin-left: 15px;
                 }
-                .hidden {
+                @include desktop {
+                    -webkit-border-radius:14px;
+                    -moz-border-radius:14px;
+                    border-radius:14px;
+                    border:1px solid #ccc;
+                    width:14px;
+                    height:14px;
+                    display: inline-block;
+                    margin-left: 15px;  
+                }
+                &--online {
+                    background-color: green;
+                  }
+                  &--offline {
                     background-color: red;
-                }
+                  } 
                 
             }
+            
             .title{
                 background-color: #DEDEDE;
                 background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
@@ -168,18 +273,55 @@ body{
                 background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
                 background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
                 color: black;
-                padding: 10px;
+                padding: 6px;
+                font-size: 8px;
+                @include tablet {
+                    padding: 8px;
+                    font-size: 10px;
+                  }
+                
+                  @include desktop {
+                    padding: 10px;
+                    font-size: 12px;
+                  }
             }
             .members{
                 border: 1px solid gray;
-                //background-color:#5F9EA0;
                 background-color: royalblue;
                 color: white;
+                max-height: 45%;
+                overflow-y: scroll;
                 .member-info{
                     border: 1px solid gray;
-                    padding: 10px;
-                    //background-color: royalblue;
-                    //background-color:#556B2F;
+                    padding: 6px;
+                    @include tablet {
+                        padding: 8px;
+                      }
+                    
+                      @include desktop {
+                        padding: 10px;
+                      }
+                      h2{
+                         font-size: 10px;
+                         @include tablet {
+                            font-size: 12px;
+                          }
+                        
+                          @include desktop {
+                            font-size: 14px;
+                          } 
+                      }
+
+                      h4{
+                        font-size: 8px;
+                        @include tablet {
+                           font-size: 10px;
+                         }
+                       
+                         @include desktop {
+                           font-size: 12px;
+                         } 
+                     }
                     a{
                         text-decoration: none;
                         color: white;
@@ -192,13 +334,104 @@ body{
                 }
             }
         }
+        .footercontainer{
+            height: auto;
+            max-height: 15%;
+            margin: auto auto 0 auto;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: $left-sidebar-width;
+            @include tablet {
+                width: $left-sidebar-width-tablet;
+              }
+            
+              @include desktop {
+                width: $left-sidebar-width-desktop;
+              }
+            color: black; 
+            display: flex;
+            flex-direction: row;
+            border: 1px solid gray;
+            //border-right: 1px solid $border-color;
+            font-style: italic;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #DEDEDE;
+            background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
+            vertical-align: middle;
+                //}
+                .left{
+                    //width: $left-sidebar-width;
+                    justify-content: flex-start;
+                    width:100%;
+                    .footericons{                       
+                        line-height: normal;
+                        display: flex;
+                        justify-content: flex-start;
+                        padding: 0 5px;
+                        .social-links{
+                            display: inline-flex; 
+                            li {
+                            list-style-type: none;                           
+                            text-align: center;
+                            padding-left: 3px;
+                            padding-right: 3px;
+                            padding-bottom: 5px;
+                            padding-top: 0px;
+                            vertical-align: middle;
+                            a{
+                            text-decoration: none;
+                            color: #335566;                
+                            a:visited { text-decoration: none; }
+                            a:hover { text-decoration: underline; }
+                            a:focus { text-decoration: none; }
+                            a:hover, a:active { text-decoration: underline; }
+                            }
+                            img{
+                                vertical-align: middle;
+                                width: 60%;
+
+                                @include tablet {
+                                    width: 75%;
+                                }
+                                @include desktop {
+                                    width: 100%;
+                                }
+                            }  
+                        }
+                    }
+                }
+               
+                    .footertext {
+                        vertical-align: middle;  
+                        padding: 5px;
+                        line-height: normal;
+                        font-size: 8px;
+                
+                    @include tablet {
+                        //line-height: $header-height-tablet;
+                        font-size: 10px;
+                    }
+                
+                    @include desktop {
+                        //line-height: $header-height-desktop;
+                        font-size: 12px;
+                    }
+                        }
+                
+                }
+            }
+    }
         .content, .dashboard, .registration, .home{
             flex-grow: 1;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             padding: 10px;
-            //background-color: whitesmoke;
+            background-color: whitesmoke;
             //text-align: center;
             h2, p{
                 text-align: center;
@@ -219,9 +452,17 @@ body{
                 
                 input{
                     margin-bottom: 10px;
-                    height: 25px;
-                    font-size: 14px;
+                    height: 20px;
+                    font-size: 10px;
                     background-color: rgb(250, 255, 189);
+                    @include tablet {
+                        height: 22px;
+                        font-size: 12px;
+                    }
+                    @include desktop {
+                        height: 25px;
+                        font-size: 14px;
+                    }
                 }
                 
                 button{
@@ -252,10 +493,23 @@ body{
                position: fixed;
                bottom: 10px;
                z-index: 3;
-               width: 80%; 
+               width: 65%;
+               @include tablet {
+                    width: 75%;
+                }
+                @include desktop {
+                    width: 80%;
+                } 
+
             .chatter-input{
                 border-top: 1px solid $border-color;
-                height: 50px;
+                height: 35px;
+                @include tablet {
+                    height: 45px;
+                }
+                @include desktop {
+                    height: 50px;
+                }
                 display: flex;
                 flex-direction: row;
                 .text-input{
@@ -266,11 +520,14 @@ body{
                         border-right: 0;
                         width: 100%;
                         height: 100%;
-                        //padding: 8px 15px;
                         padding: 15px 0px 11px 8px;
-                        //background-color: rgb(250, 255, 189);
-                        //background-color: #FFFAF0;
-                        font-size: 16px;        
+                        font-size: 12px;
+                        @include tablet {
+                            font-size: 14px;
+                        } 
+                        @include desktop {
+                            font-size: 16px;
+                        }       
                     }
                 }
                 .actions{                    
@@ -280,13 +537,19 @@ body{
                         border: 1px solid gray;
                         border-left: 0;
                         cursor: pointer;
-                        font-size: 16px;
+                        font-size: 12px;
+                        @include tablet {
+                            font-size: 14px;
+                        } 
+                        @include desktop {
+                            font-size: 16px;
+                        }  
                         color: black;
                         //vertical-align: middle;
                         //padding: 7px 15px;
                         padding-left: 12px;
                         padding-right: 12px;
-                        line-height: 50px;
+                        //line-height: 50px;
                         background-color: #DEDEDE;
                         background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
                         background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
@@ -336,78 +599,7 @@ body{
                     }
                 }
             }
-        }
-    
-    .footercontainer{
-        height: auto;
-        margin: auto auto 0 auto;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        color: black; 
-        display: flex;
-        flex-direction: row;
-        border-top: 1px solid $border-color;
-        font-style: italic;
-        font-family: 'Montserrat', sans-serif;
-        background-color: #DEDEDE;
-        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
-        background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
-        vertical-align: middle;
-            .right{
-                width: $right-sidebar-width;
-                justify-content: flex-end;
-                width: 50%;
-                    }
-            }
-            .left{
-                //width: $left-sidebar-width;
-                justify-content: flex-start;
-                width:35%;
-                .footericons{
-                    line-height: $footer-height;
-                    display: flex;
-                    justify-content: flex-start;
-                    padding: 0 5px;
-                    //vertical-align: middle;
-                    .social-links{ 
-                        li {
-                        list-style-type: none;
-                        display: inline-block;
-                        text-align: center;
-                        padding-left: 3px;
-                        padding-right: 3px;
-                        padding-bottom: 5px;
-                        padding-top: 0px;
-                        vertical-align: middle;
-                        a{
-                        text-decoration: none;
-                        color: #335566;                
-                        a:visited { text-decoration: none; }
-                        a:hover { text-decoration: underline; }
-                        a:focus { text-decoration: none; }
-                        a:hover, a:active { text-decoration: underline; }
-                        }
-                        img{
-                            vertical-align: middle;
-                        }  
-                    }
-                }
-            }
-           
-                .footertext {
-                    vertical-align: middle;
-                    //padding-top: 30px;  
-                    line-height: $footer-height;
-                    padding: 5px;
-                    }
-            
-            }
-
+        }    
 }
 
 

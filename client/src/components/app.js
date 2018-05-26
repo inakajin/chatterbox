@@ -59,17 +59,14 @@ export class App extends React.Component {
                     <div className="left-align">
                     <RightSideBar />
                     <LeftSideBar />
-                     </div>   
+                    <FooterBar />
+                    </div>   
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
                     <Route exact path="/add" component={Add} />
-                    <Route exact path="/room/:roomid" component={Chatter} />
-                    
-                     
-                    
-                </div>
-                <FooterBar />                
+                    <Route exact path="/room/:roomid" component={Chatter} />    
+                </div>                               
             </div>
         );
     }

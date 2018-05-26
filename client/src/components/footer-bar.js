@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-import avatar from "../user-avatar.png";
+//import avatar from "../user-avatar.png";
 import linkedin from '../public/img/linkedin.png';
 //import facebook from '../public/img/facebook-icon.png';
 //import googleplus from '../public/img/googleplusicon.jpeg';
@@ -46,9 +46,6 @@ export class FooterBar extends React.Component {
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div className="right">
-                    
                 </div>
             </footer>
 

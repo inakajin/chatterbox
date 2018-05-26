@@ -8,27 +8,27 @@ import { sendEntry } from '../actions/addNew';
 import { refreshData } from '../actions/chat-data';
 import io from 'socket.io-client'; 
 import {API_BASE_URL} from '../config';
-// import {required, nonEmpty} from '../validators';
+
 
 export class Add extends React.Component {
 
-    componentWillMount() {
+   //componentWillMount() {
         //this.props.dispatch(refreshData());
-    }
+   // }
 
-    componentDidMount() {
+    //componentDidMount() {
        // this.props.dispatch(testFetch());
    
-    }
+   // }
 
 
     onSubmit(values) {
-        console.log(this.props)
+        //console.log(this.props)
         let submission = {
             body: values.chat, 
             roomId: this.props.roomId           
         };
-        console.log(submission);
+        //console.log(submission);
         return this.props.dispatch(sendEntry(submission, this.props.socket));
         
     }
@@ -52,7 +52,7 @@ export class Add extends React.Component {
         }
         const handleSubmit = this.props.handleSubmit(values =>
             this.onSubmit(values),
-            console.log(this),
+            //console.log(this),
             
             //this.props.clearSubmit()
         );

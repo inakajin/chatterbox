@@ -1,8 +1,27 @@
-$header-height: 75px;
+$header-height: 45px;
+$header-height-tablet: 60px;
+$header-height-desktop: 75px;
 $footer-height: 50px;
-$left-sidebar-width: 200px;
+$left-sidebar-width: 100px;
+$left-sidebar-width-tablet: 150px;
+$left-sidebar-width-desktop: 200px;
 $right-sidebar-width: 300px;
 $border-color: rgba(0, 0, 0, 0.05);
 $primary-color: #00cec9;
 $warning-color: #d63031;
 $body-color: #636e72;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

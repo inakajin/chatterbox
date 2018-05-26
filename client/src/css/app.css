@@ -7,8 +7,7 @@ body, html {
 body {
   color: #636e72;
   font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
-  margin-bottom: 75px; }
+  font-family: 'Open Sans', sans-serif; }
 
 * {
   box-sizing: border-box;
@@ -19,17 +18,23 @@ body {
   display: flex;
   flex-direction: column; }
   .app-chatter .header {
-    height: 75px;
+    height: 45px;
     background-color: #669999;
     color: white;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .app-chatter .header {
+        height: 60px; } }
+    @media (min-width: 1024px) {
+      .app-chatter .header {
+        height: 75px; } }
     .app-chatter .header button {
       font-family: Verdana, "Geneva", sans-serif;
       border: 0 none;
-      padding: 15px;
-      font-size: 12px;
+      padding: 9px;
+      font-size: 8px;
       cursor: pointer;
       border: none;
       border-radius: 12px;
@@ -42,88 +47,264 @@ body {
       /* For Firefox 3.6 to 15 */
       background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
       /* Standard syntax */ }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .app-chatter .header button {
+          font-size: 10px;
+          padding: 12px; } }
+      @media (min-width: 1024px) {
+        .app-chatter .header button {
+          font-size: 12px;
+          padding: 15px; } }
     .app-chatter .header .left {
-      width: 200px; }
+      width: auto; }
       .app-chatter .header .left .actions {
-        line-height: 75px;
+        line-height: 45px;
         padding: 0 10px; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .header .left .actions {
+            line-height: 60px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .header .left .actions {
+            line-height: 75px; } }
     .app-chatter .header .content {
       flex-grow: 1;
-      overflow: hidden; }
+      overflow: hidden;
+      width: auto; }
       .app-chatter .header .content h2 {
-        line-height: 75px;
+        line-height: 45px;
         text-align: center;
-        font-size: 24px; }
+        font-size: 12px; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .header .content h2 {
+            font-size: 18px;
+            line-height: 60px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .header .content h2 {
+            font-size: 24px;
+            line-height: 75px; } }
     .app-chatter .header .right {
-      width: 300px; }
+      width: auto; }
       .app-chatter .header .right .user-bar {
-        line-height: 75px;
+        line-height: 45px;
         display: flex;
         justify-content: flex-end;
         padding: 0 10px; }
-        .app-chatter .header .right .user-bar .profile-name {
-          padding-right: 10px;
-          font-size: 16px; }
-        .app-chatter .header .right .user-bar .profile-image img {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          margin: 10px 0 0 0; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .header .right .user-bar {
+            line-height: 60px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .header .right .user-bar {
+            line-height: 75px; } }
   .app-chatter .main {
     height: 100%;
     min-height: calc(100vh - 50px);
     display: flex;
     overflow: hidden; }
-    .app-chatter .main .sidebar-left {
-      border-right: 1px solid rgba(0, 0, 0, 0.05);
-      width: 200px;
-      background-color: #A5C663; }
-      .app-chatter .main .sidebar-left .title {
-        background-color: #DEDEDE;
-        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Firefox 3.6 to 15 */
-        background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* Standard syntax */
-        color: black;
-        padding: 10px; }
-      .app-chatter .main .sidebar-left .rooms {
-        list-style-type: none;
-        border: 1px solid gray; }
-        .app-chatter .main .sidebar-left .rooms .room-info {
+    .app-chatter .main .left-align {
+      width: 100px;
+      background-color: whitesmoke; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .app-chatter .main .left-align {
+          width: 150px; } }
+      @media (min-width: 1024px) {
+        .app-chatter .main .left-align {
+          width: 200px; } }
+      .app-chatter .main .left-align .sidebar-left {
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        width: 100px;
+        background-color: #A5C663; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .main .left-align .sidebar-left {
+            width: 150px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .main .left-align .sidebar-left {
+            width: 200px; } }
+        .app-chatter .main .left-align .sidebar-left .title {
+          background-color: #DEDEDE;
+          background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* For Safari 5.1 to 6.0 */
+          background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* For Opera 11.1 to 12.0 */
+          background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* For Firefox 3.6 to 15 */
+          background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* Standard syntax */
+          color: black;
+          padding: 6px;
+          font-size: 8px; }
+          @media (min-width: 768px) and (max-width: 1023px) {
+            .app-chatter .main .left-align .sidebar-left .title {
+              padding: 8px;
+              font-size: 10px; } }
+          @media (min-width: 1024px) {
+            .app-chatter .main .left-align .sidebar-left .title {
+              padding: 10px;
+              font-size: 12px; } }
+        .app-chatter .main .left-align .sidebar-left .rooms {
+          list-style-type: none;
           border: 1px solid gray;
-          padding: 10px; }
-          .app-chatter .main .sidebar-left .rooms .room-info a {
-            text-decoration: none;
-            color: white; }
-            .app-chatter .main .sidebar-left .rooms .room-info a a:visited {
-              text-decoration: none; }
-            .app-chatter .main .sidebar-left .rooms .room-info a a:hover {
-              text-decoration: underline; }
-            .app-chatter .main .sidebar-left .rooms .room-info a a:focus {
-              text-decoration: none; }
-            .app-chatter .main .sidebar-left .rooms .room-info a a:hover, .app-chatter .main .sidebar-left .rooms .room-info a a:active {
-              text-decoration: underline; }
-    .app-chatter .main .sidebar-right {
-      border-left: 1px solid rgba(0, 0, 0, 0.05);
-      width: 200px; }
-      .app-chatter .main .sidebar-right .circle {
-        -webkit-border-radius: 18px;
-        -moz-border-radius: 18px;
-        border-radius: 18px;
-        border: 1px solid #ccc;
-        width: 18px;
-        height: 18px;
-        display: inline-block;
-        margin-left: 15px; }
-        .app-chatter .main .sidebar-right .circle .show {
-          background-color: green; }
-        .app-chatter .main .sidebar-right .circle .hidden {
+          max-height: 45%;
+          overflow-y: scroll; }
+          .app-chatter .main .left-align .sidebar-left .rooms .room-info {
+            border: 1px solid gray;
+            padding: 6px; }
+            @media (min-width: 768px) and (max-width: 1023px) {
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info {
+                padding: 8px; } }
+            @media (min-width: 1024px) {
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info {
+                padding: 10px; } }
+            .app-chatter .main .left-align .sidebar-left .rooms .room-info h2 {
+              font-size: 10px; }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                .app-chatter .main .left-align .sidebar-left .rooms .room-info h2 {
+                  font-size: 12px; } }
+              @media (min-width: 1024px) {
+                .app-chatter .main .left-align .sidebar-left .rooms .room-info h2 {
+                  font-size: 14px; } }
+            .app-chatter .main .left-align .sidebar-left .rooms .room-info h4 {
+              font-size: 8px; }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                .app-chatter .main .left-align .sidebar-left .rooms .room-info h4 {
+                  font-size: 10px; } }
+              @media (min-width: 1024px) {
+                .app-chatter .main .left-align .sidebar-left .rooms .room-info h4 {
+                  font-size: 12px; } }
+            .app-chatter .main .left-align .sidebar-left .rooms .room-info a {
+              text-decoration: none;
+              color: white; }
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info a a:visited {
+                text-decoration: none; }
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info a a:hover {
+                text-decoration: underline; }
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info a a:focus {
+                text-decoration: none; }
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info a a:hover, .app-chatter .main .left-align .sidebar-left .rooms .room-info a a:active {
+                text-decoration: underline; }
+              .app-chatter .main .left-align .sidebar-left .rooms .room-info a--active {
+                color: black; }
+            .app-chatter .main .left-align .sidebar-left .rooms .room-info--active {
+              background-color: purple; }
+      .app-chatter .main .left-align .sidebar-right {
+        border-left: 1px solid rgba(0, 0, 0, 0.05);
+        width: 100px; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .main .left-align .sidebar-right {
+            width: 150px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .main .left-align .sidebar-right {
+            width: 200px; } }
+        .app-chatter .main .left-align .sidebar-right .circle {
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+          width: 10px;
+          height: 10px;
+          display: inline-block;
+          margin-left: 15px;
           background-color: red; }
-      .app-chatter .main .sidebar-right .title {
+          @media (min-width: 768px) and (max-width: 1023px) {
+            .app-chatter .main .left-align .sidebar-right .circle {
+              -webkit-border-radius: 12px;
+              -moz-border-radius: 12px;
+              border-radius: 12px;
+              border: 1px solid #ccc;
+              width: 12px;
+              height: 12px;
+              display: inline-block;
+              margin-left: 15px; } }
+          @media (min-width: 1024px) {
+            .app-chatter .main .left-align .sidebar-right .circle {
+              -webkit-border-radius: 14px;
+              -moz-border-radius: 14px;
+              border-radius: 14px;
+              border: 1px solid #ccc;
+              width: 14px;
+              height: 14px;
+              display: inline-block;
+              margin-left: 15px; } }
+          .app-chatter .main .left-align .sidebar-right .circle--online {
+            background-color: green; }
+          .app-chatter .main .left-align .sidebar-right .circle--offline {
+            background-color: red; }
+        .app-chatter .main .left-align .sidebar-right .title {
+          background-color: #DEDEDE;
+          background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* For Safari 5.1 to 6.0 */
+          background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* For Opera 11.1 to 12.0 */
+          background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* For Firefox 3.6 to 15 */
+          background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+          /* Standard syntax */
+          color: black;
+          padding: 6px;
+          font-size: 8px; }
+          @media (min-width: 768px) and (max-width: 1023px) {
+            .app-chatter .main .left-align .sidebar-right .title {
+              padding: 8px;
+              font-size: 10px; } }
+          @media (min-width: 1024px) {
+            .app-chatter .main .left-align .sidebar-right .title {
+              padding: 10px;
+              font-size: 12px; } }
+        .app-chatter .main .left-align .sidebar-right .members {
+          border: 1px solid gray;
+          background-color: royalblue;
+          color: white;
+          max-height: 45%;
+          overflow-y: scroll; }
+          .app-chatter .main .left-align .sidebar-right .members .member-info {
+            border: 1px solid gray;
+            padding: 6px; }
+            @media (min-width: 768px) and (max-width: 1023px) {
+              .app-chatter .main .left-align .sidebar-right .members .member-info {
+                padding: 8px; } }
+            @media (min-width: 1024px) {
+              .app-chatter .main .left-align .sidebar-right .members .member-info {
+                padding: 10px; } }
+            .app-chatter .main .left-align .sidebar-right .members .member-info h2 {
+              font-size: 10px; }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                .app-chatter .main .left-align .sidebar-right .members .member-info h2 {
+                  font-size: 12px; } }
+              @media (min-width: 1024px) {
+                .app-chatter .main .left-align .sidebar-right .members .member-info h2 {
+                  font-size: 14px; } }
+            .app-chatter .main .left-align .sidebar-right .members .member-info h4 {
+              font-size: 8px; }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                .app-chatter .main .left-align .sidebar-right .members .member-info h4 {
+                  font-size: 10px; } }
+              @media (min-width: 1024px) {
+                .app-chatter .main .left-align .sidebar-right .members .member-info h4 {
+                  font-size: 12px; } }
+            .app-chatter .main .left-align .sidebar-right .members .member-info a {
+              text-decoration: none;
+              color: white; }
+              .app-chatter .main .left-align .sidebar-right .members .member-info a a:visited {
+                text-decoration: none; }
+              .app-chatter .main .left-align .sidebar-right .members .member-info a a:hover {
+                text-decoration: underline; }
+              .app-chatter .main .left-align .sidebar-right .members .member-info a a:focus {
+                text-decoration: none; }
+              .app-chatter .main .left-align .sidebar-right .members .member-info a a:hover, .app-chatter .main .left-align .sidebar-right .members .member-info a a:active {
+                text-decoration: underline; }
+      .app-chatter .main .left-align .footercontainer {
+        height: auto;
+        max-height: 15%;
+        margin: auto auto 0 auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100px;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid gray;
+        font-style: italic;
+        font-family: 'Montserrat', sans-serif;
         background-color: #DEDEDE;
         background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
         /* For Safari 5.1 to 6.0 */
@@ -133,32 +314,69 @@ body {
         /* For Firefox 3.6 to 15 */
         background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
         /* Standard syntax */
-        color: black;
-        padding: 10px; }
-      .app-chatter .main .sidebar-right .members {
-        border: 1px solid gray;
-        background-color: royalblue;
-        color: white; }
-        .app-chatter .main .sidebar-right .members .member-info {
-          border: 1px solid gray;
-          padding: 10px; }
-          .app-chatter .main .sidebar-right .members .member-info a {
-            text-decoration: none;
-            color: white; }
-            .app-chatter .main .sidebar-right .members .member-info a a:visited {
-              text-decoration: none; }
-            .app-chatter .main .sidebar-right .members .member-info a a:hover {
-              text-decoration: underline; }
-            .app-chatter .main .sidebar-right .members .member-info a a:focus {
-              text-decoration: none; }
-            .app-chatter .main .sidebar-right .members .member-info a a:hover, .app-chatter .main .sidebar-right .members .member-info a a:active {
-              text-decoration: underline; }
+        vertical-align: middle; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .main .left-align .footercontainer {
+            width: 150px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .main .left-align .footercontainer {
+            width: 200px; } }
+        .app-chatter .main .left-align .footercontainer .left {
+          justify-content: flex-start;
+          width: 100%; }
+          .app-chatter .main .left-align .footercontainer .left .footericons {
+            line-height: normal;
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 5px; }
+            .app-chatter .main .left-align .footercontainer .left .footericons .social-links {
+              display: inline-flex; }
+              .app-chatter .main .left-align .footercontainer .left .footericons .social-links li {
+                list-style-type: none;
+                text-align: center;
+                padding-left: 3px;
+                padding-right: 3px;
+                padding-bottom: 5px;
+                padding-top: 0px;
+                vertical-align: middle; }
+                .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a {
+                  text-decoration: none;
+                  color: #335566; }
+                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:visited {
+                    text-decoration: none; }
+                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:hover {
+                    text-decoration: underline; }
+                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:focus {
+                    text-decoration: none; }
+                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:hover, .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:active {
+                    text-decoration: underline; }
+                .app-chatter .main .left-align .footercontainer .left .footericons .social-links li img {
+                  vertical-align: middle;
+                  width: 60%; }
+                  @media (min-width: 768px) and (max-width: 1023px) {
+                    .app-chatter .main .left-align .footercontainer .left .footericons .social-links li img {
+                      width: 75%; } }
+                  @media (min-width: 1024px) {
+                    .app-chatter .main .left-align .footercontainer .left .footericons .social-links li img {
+                      width: 100%; } }
+          .app-chatter .main .left-align .footercontainer .left .footertext {
+            vertical-align: middle;
+            padding: 5px;
+            line-height: normal;
+            font-size: 8px; }
+            @media (min-width: 768px) and (max-width: 1023px) {
+              .app-chatter .main .left-align .footercontainer .left .footertext {
+                font-size: 10px; } }
+            @media (min-width: 1024px) {
+              .app-chatter .main .left-align .footercontainer .left .footertext {
+                font-size: 12px; } }
     .app-chatter .main .content, .app-chatter .main .dashboard, .app-chatter .main .registration, .app-chatter .main .home {
       flex-grow: 1;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      padding: 10px; }
+      padding: 10px;
+      background-color: whitesmoke; }
       .app-chatter .main .content h2, .app-chatter .main .content p, .app-chatter .main .dashboard h2, .app-chatter .main .dashboard p, .app-chatter .main .registration h2, .app-chatter .main .registration p, .app-chatter .main .home h2, .app-chatter .main .home p {
         text-align: center;
         margin-bottom: 10px; }
@@ -171,9 +389,17 @@ body {
           display: block; }
       .app-chatter .main .content .login-form input, .app-chatter .main .dashboard .login-form input, .app-chatter .main .registration .login-form input, .app-chatter .main .home .login-form input {
         margin-bottom: 10px;
-        height: 25px;
-        font-size: 14px;
+        height: 20px;
+        font-size: 10px;
         background-color: #faffbd; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .main .content .login-form input, .app-chatter .main .dashboard .login-form input, .app-chatter .main .registration .login-form input, .app-chatter .main .home .login-form input {
+            height: 22px;
+            font-size: 12px; } }
+        @media (min-width: 1024px) {
+          .app-chatter .main .content .login-form input, .app-chatter .main .dashboard .login-form input, .app-chatter .main .registration .login-form input, .app-chatter .main .home .login-form input {
+            height: 25px;
+            font-size: 14px; } }
       .app-chatter .main .content .login-form button, .app-chatter .main .dashboard .login-form button, .app-chatter .main .registration .login-form button, .app-chatter .main .home .login-form button {
         font-family: Verdana, "Geneva", sans-serif;
         color: black;
@@ -184,7 +410,7 @@ body {
         width: 60px;
         cursor: pointer;
         margin-bottom: 10px;
-        line-height: 65px;
+        line-height: 35px;
         border: none;
         border-radius: 12px;
         background-color: #DEDEDE;
@@ -202,12 +428,24 @@ body {
         position: fixed;
         bottom: 10px;
         z-index: 3;
-        width: 80%; }
+        width: 65%; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .app-chatter .main .content .chat-form, .app-chatter .main .dashboard .chat-form, .app-chatter .main .registration .chat-form, .app-chatter .main .home .chat-form {
+            width: 75%; } }
+        @media (min-width: 1024px) {
+          .app-chatter .main .content .chat-form, .app-chatter .main .dashboard .chat-form, .app-chatter .main .registration .chat-form, .app-chatter .main .home .chat-form {
+            width: 80%; } }
         .app-chatter .main .content .chat-form .chatter-input, .app-chatter .main .dashboard .chat-form .chatter-input, .app-chatter .main .registration .chat-form .chatter-input, .app-chatter .main .home .chat-form .chatter-input {
           border-top: 1px solid rgba(0, 0, 0, 0.05);
-          height: 50px;
+          height: 35px;
           display: flex;
           flex-direction: row; }
+          @media (min-width: 768px) and (max-width: 1023px) {
+            .app-chatter .main .content .chat-form .chatter-input, .app-chatter .main .dashboard .chat-form .chatter-input, .app-chatter .main .registration .chat-form .chatter-input, .app-chatter .main .home .chat-form .chatter-input {
+              height: 45px; } }
+          @media (min-width: 1024px) {
+            .app-chatter .main .content .chat-form .chatter-input, .app-chatter .main .dashboard .chat-form .chatter-input, .app-chatter .main .registration .chat-form .chatter-input, .app-chatter .main .home .chat-form .chatter-input {
+              height: 50px; } }
           .app-chatter .main .content .chat-form .chatter-input .text-input, .app-chatter .main .dashboard .chat-form .chatter-input .text-input, .app-chatter .main .registration .chat-form .chatter-input .text-input, .app-chatter .main .home .chat-form .chatter-input .text-input {
             flex-grow: 1; }
             .app-chatter .main .content .chat-form .chatter-input .text-input textarea, .app-chatter .main .dashboard .chat-form .chatter-input .text-input textarea, .app-chatter .main .registration .chat-form .chatter-input .text-input textarea, .app-chatter .main .home .chat-form .chatter-input .text-input textarea {
@@ -216,18 +454,23 @@ body {
               width: 100%;
               height: 100%;
               padding: 15px 0px 11px 8px;
-              font-size: 16px; }
+              font-size: 12px; }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                .app-chatter .main .content .chat-form .chatter-input .text-input textarea, .app-chatter .main .dashboard .chat-form .chatter-input .text-input textarea, .app-chatter .main .registration .chat-form .chatter-input .text-input textarea, .app-chatter .main .home .chat-form .chatter-input .text-input textarea {
+                  font-size: 14px; } }
+              @media (min-width: 1024px) {
+                .app-chatter .main .content .chat-form .chatter-input .text-input textarea, .app-chatter .main .dashboard .chat-form .chatter-input .text-input textarea, .app-chatter .main .registration .chat-form .chatter-input .text-input textarea, .app-chatter .main .home .chat-form .chatter-input .text-input textarea {
+                  font-size: 16px; } }
           .app-chatter .main .content .chat-form .chatter-input .actions button.post, .app-chatter .main .dashboard .chat-form .chatter-input .actions button.post, .app-chatter .main .registration .chat-form .chatter-input .actions button.post, .app-chatter .main .home .chat-form .chatter-input .actions button.post {
             background: #00cec9;
             height: 100%;
             border: 1px solid gray;
             border-left: 0;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 12px;
             color: black;
             padding-left: 12px;
             padding-right: 12px;
-            line-height: 50px;
             background-color: #DEDEDE;
             background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
             /* For Safari 5.1 to 6.0 */
@@ -237,6 +480,12 @@ body {
             /* For Firefox 3.6 to 15 */
             background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
             /* Standard syntax */ }
+            @media (min-width: 768px) and (max-width: 1023px) {
+              .app-chatter .main .content .chat-form .chatter-input .actions button.post, .app-chatter .main .dashboard .chat-form .chatter-input .actions button.post, .app-chatter .main .registration .chat-form .chatter-input .actions button.post, .app-chatter .main .home .chat-form .chatter-input .actions button.post {
+                font-size: 14px; } }
+            @media (min-width: 1024px) {
+              .app-chatter .main .content .chat-form .chatter-input .actions button.post, .app-chatter .main .dashboard .chat-form .chatter-input .actions button.post, .app-chatter .main .registration .chat-form .chatter-input .actions button.post, .app-chatter .main .home .chat-form .chatter-input .actions button.post {
+                font-size: 16px; } }
   .app-chatter .messages {
     display: flex;
     flex-direction: column;
@@ -262,67 +511,5 @@ body {
       .app-chatter .messages.me .message-body .message-text {
         background: #00cec9;
         color: #FFF; }
-  .app-chatter .footercontainer {
-    height: auto;
-    margin: auto auto 0 auto;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    color: black;
-    display: flex;
-    flex-direction: row;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    font-style: italic;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #DEDEDE;
-    background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-    /* Standard syntax */
-    vertical-align: middle; }
-    .app-chatter .footercontainer .right {
-      width: 300px;
-      justify-content: flex-end;
-      width: 50%; }
-  .app-chatter .left {
-    justify-content: flex-start;
-    width: 35%; }
-    .app-chatter .left .footericons {
-      line-height: 50px;
-      display: flex;
-      justify-content: flex-start;
-      padding: 0 5px; }
-      .app-chatter .left .footericons .social-links li {
-        list-style-type: none;
-        display: inline-block;
-        text-align: center;
-        padding-left: 3px;
-        padding-right: 3px;
-        padding-bottom: 5px;
-        padding-top: 0px;
-        vertical-align: middle; }
-        .app-chatter .left .footericons .social-links li a {
-          text-decoration: none;
-          color: #335566; }
-          .app-chatter .left .footericons .social-links li a a:visited {
-            text-decoration: none; }
-          .app-chatter .left .footericons .social-links li a a:hover {
-            text-decoration: underline; }
-          .app-chatter .left .footericons .social-links li a a:focus {
-            text-decoration: none; }
-          .app-chatter .left .footericons .social-links li a a:hover, .app-chatter .left .footericons .social-links li a a:active {
-            text-decoration: underline; }
-        .app-chatter .left .footericons .social-links li img {
-          vertical-align: middle; }
-    .app-chatter .left .footertext {
-      vertical-align: middle;
-      line-height: 50px;
-      padding: 5px; }
 
 /*# sourceMappingURL=app.css.map */

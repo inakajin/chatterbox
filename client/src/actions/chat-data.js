@@ -16,7 +16,7 @@ export const fetchProtectedDataError = error => ({
 });
 
 export const fetchChatData = (id) => (dispatch, getState) => {
-    console.log(getState(), id);
+    //console.log(getState(), id);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/room/${id}`, {
         method: 'GET',
@@ -37,11 +37,11 @@ export const fetchChatData = (id) => (dispatch, getState) => {
 
 export const refreshData = (socket) => {
     return (dispatch) => {
-      console.log('mango');
+      //console.log('mango');
       socket.removeListener('message');
       socket.on('message', function(response) {
-        console.log('peach');
-        console.log(response);
+        //console.log('peach');
+        //console.log(response);
         dispatch({
           type: 'REALTIME_REFRESH',
           payload: response,

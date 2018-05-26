@@ -1,7 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
-//import io from 'socket.io-client'; 
-//const socket = io.connect(API_BASE_URL);
+
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
@@ -17,13 +16,9 @@ export const fetchProtectedDataError = error => ({
 
 export const getUsers = () => (dispatch, getState) => {
     console.log(getState());
-    //const authToken = getState().auth.authToken;
+
     return fetch(`${API_BASE_URL}/getusers`, {
         method: 'GET'
-        //headers: {
-            // Provide our auth token as credentials
-       //     Authorization: `Bearer ${authToken}`
-        //}
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
@@ -35,15 +30,14 @@ export const getUsers = () => (dispatch, getState) => {
 
 export const refreshUserData = (socket) => {
     return (dispatch) => {
-      console.log('mango');
+      //console.log('mango');
       socket.removeListener('activeusers');
       socket.on('activeusers', function(response) {
-        console.log('peach');
-        console.log(response);
+        //console.log('peach');
+        //console.log(response);
         dispatch({
           type: 'REALTIME_USERS',
           payload: response,
-          //time: time
         })
       });
     }
@@ -51,15 +45,14 @@ export const refreshUserData = (socket) => {
 
 export const refreshData = (socket) => {
     return (dispatch) => {
-      console.log('mango');
+      //console.log('mango');
       socket.removeListener('message');
       socket.on('message', function(response) {
-        console.log('peach');
-        console.log(response);
+        //console.log('peach');
+        //console.log(response);
         dispatch({
           type: 'REALTIME_REFRESH',
-          payload: response,
-          //time: time
+          payload: response
         })
       });
     }

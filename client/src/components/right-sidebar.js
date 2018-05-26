@@ -4,11 +4,12 @@ import {connect} from 'react-redux';
 import {setCurrentUser, setAuthToken} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import {fetchRoomNames} from '../actions/left-sidebar';
-import avatar from "../user-avatar.png";
+//import avatar from "../user-avatar.png";
 import {getUsers, refreshUserData} from "../actions/right-sidebar";
 import moment from 'moment';
 import io from "socket.io-client";
 import { API_BASE_URL } from "../config";
+import classNames from "classnames";
 
 
 //let users = [];
@@ -17,10 +18,6 @@ export class RightSideBar extends React.Component {
         console.log("camel")
         this.props.dispatch(getUsers());
         var socket = io.connect(API_BASE_URL);
-       /* socket.on("activeusers", function(users) {
-            console.log(users)
-            users = users
-        })*/
         this.props.dispatch(refreshUserData(socket));
     }
 
@@ -28,9 +25,14 @@ export class RightSideBar extends React.Component {
         console.log(this.props);
         const members = this.props.users.map((user, i) => {
            console.log(user);
+
+        
           
-            return <li key={i} className={"member-info " + (user.active ? 'show' : 'hidden')}>                   
-                        <h2>{user.username}<div className="circle"></div></h2>
+            return <li key={i} className={"member-info " + (user.active ? 'online' : 'offline')}>                   
+                        <h2>{user.username}<div className={`circle ${
+                            user.active ? "circle--online" : "circle--offline"
+                          }`}></div>
+                          </h2>
                         <h4>Joined: {moment(user.joined).format("MMM Do YY")}</h4>               
                     </li>
         })

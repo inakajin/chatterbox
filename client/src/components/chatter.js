@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import avatar from "../user-avatar.png";
+//import avatar from "../user-avatar.png";
 import Add from "./Add";
 //import { createRoom } from "../actions/rooms";
 import Rooms from './rooms';
@@ -11,7 +11,7 @@ import io from "socket.io-client";
 import { API_BASE_URL } from "../config";
 //import FooterBar from './footer-bar';
 
-console.log(avatar);
+
 class Chatter extends Component {
   constructor(props) {
     super(props);
@@ -40,13 +40,13 @@ class Chatter extends Component {
 
   componentWillReceiveProps(props) { 
     var socket = io.connect(API_BASE_URL);
-      console.log('componentWillReceiveProps')
-      console.log(this.props)
+      //console.log('componentWillReceiveProps')
+      //console.log(this.props)
       socket.emit("active", this.props.currentUser.id) 
-      console.log(props.location.pathname, this.props.location.pathname);
+      //console.log(props.location.pathname, this.props.location.pathname);
       if(props.location.pathname !== this.props.location.pathname) {
           this.props.dispatch(fetchChatData(props.match.params.roomid))
-            console.log(this.props)
+        //    console.log(this.props)
         }
       //this.props.dispatch(fetchChatData(this.props.match.params.roomid));
     }
@@ -54,11 +54,11 @@ class Chatter extends Component {
   componentWillMount() {
     // set-up a connection between the client and the server
     var socket = io.connect(API_BASE_URL);
-    console.log("componentWillMount");
+    //console.log("componentWillMount");
     // let's assume that the client page, once rendered, knows what room it wants to join
     var room = this.props.match.params.roomid;
     var user = this.props;
-    console.log(this.props);
+    //console.log(this.props);
     socket.on("connect", function() {
     //console.log(this.props);
     // Connected, let's sign-up for to receive messages for this room
@@ -83,10 +83,10 @@ class Chatter extends Component {
     this.props.dispatch(refreshData(socket));
 
     this.setState({socket:socket})
-    console.log(this);
+    //console.log(this);
   }
   componentDidMount() {
-    console.log("component did mount", this.props, this.state);
+    //console.log("component did mount", this.props, this.state);
     window.addEventListener("resize", this._onResize);
     this.props.dispatch(fetchChatData(this.props.match.params.roomid))    
   }
@@ -129,14 +129,14 @@ class Chatter extends Component {
   }
 
   connectUserSocket = () => {
-      console.log(this.props)
+      //console.log(this.props)
       var room = this.props.match.params.roomid;
       var user = this.props.currentUser;
       var socket = this.state.socket;
       
   }
   render() {
-    console.log(this);
+    //console.log(this);
     this.connectUserSocket();
     const { height } = this.state;
     const { messages } = this.props;
@@ -188,7 +188,7 @@ class Chatter extends Component {
 
 const mapStateToProps = state => {
   const {currentUser} = state.auth;
-  console.log(currentUser);
+  //console.log(currentUser);
   return {
     loggedIn: currentUser !== null,
     email: currentUser ? state.auth.currentUser.email : '',

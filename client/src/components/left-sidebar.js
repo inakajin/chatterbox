@@ -26,11 +26,10 @@ export class LeftSideBar extends React.Component {
             console.log(this, window.location)
             let pathy = window.location.pathname;
             console.log(pathy);
-            return <li key={i} className={"room-info "+ (this.state.activeroom == `/room/${room._id}` ? 'active' : 'inactive')} onClick={()=>this.selectedItem(window.location.pathname)}>
+            return <li key={i} className={"room-info "+ (this.state.activeroom == `/room/${room._id}` ? 'room-info--active' : 'room-info--inactive')} onClick={()=>this.selectedItem(window.location.pathname)}>
                     <Link to={{ pathname: `/room/${room._id}`, name:room.roomname }}>
                         <h2>{room.roomname}</h2>
                         <h4>Last updated: </h4>
-                        <h4>{this.state.activeroom + "taco" +  room._id}</h4>
                         <h4> 
                         {moment(room.lastUpdated).format('MMM Do, h:mm a')}  </h4>
                     </Link>    
