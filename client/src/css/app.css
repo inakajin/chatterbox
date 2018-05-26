@@ -194,40 +194,6 @@ body {
         @media (min-width: 1024px) {
           .app-chatter .main .left-align .sidebar-right {
             width: 200px; } }
-        .app-chatter .main .left-align .sidebar-right .circle {
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
-          border: 1px solid #ccc;
-          width: 10px;
-          height: 10px;
-          display: inline-block;
-          margin-left: 15px;
-          background-color: red; }
-          @media (min-width: 768px) and (max-width: 1023px) {
-            .app-chatter .main .left-align .sidebar-right .circle {
-              -webkit-border-radius: 12px;
-              -moz-border-radius: 12px;
-              border-radius: 12px;
-              border: 1px solid #ccc;
-              width: 12px;
-              height: 12px;
-              display: inline-block;
-              margin-left: 15px; } }
-          @media (min-width: 1024px) {
-            .app-chatter .main .left-align .sidebar-right .circle {
-              -webkit-border-radius: 14px;
-              -moz-border-radius: 14px;
-              border-radius: 14px;
-              border: 1px solid #ccc;
-              width: 14px;
-              height: 14px;
-              display: inline-block;
-              margin-left: 15px; } }
-          .app-chatter .main .left-align .sidebar-right .circle--online {
-            background-color: green; }
-          .app-chatter .main .left-align .sidebar-right .circle--offline {
-            background-color: red; }
         .app-chatter .main .left-align .sidebar-right .title {
           background-color: #DEDEDE;
           background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
@@ -257,7 +223,8 @@ body {
           overflow-y: scroll; }
           .app-chatter .main .left-align .sidebar-right .members .member-info {
             border: 1px solid gray;
-            padding: 6px; }
+            padding: 6px;
+            position: relative; }
             @media (min-width: 768px) and (max-width: 1023px) {
               .app-chatter .main .left-align .sidebar-right .members .member-info {
                 padding: 8px; } }
@@ -291,6 +258,47 @@ body {
                 text-decoration: none; }
               .app-chatter .main .left-align .sidebar-right .members .member-info a a:hover, .app-chatter .main .left-align .sidebar-right .members .member-info a a:active {
                 text-decoration: underline; }
+            .app-chatter .main .left-align .sidebar-right .members .member-info .circle {
+              -webkit-border-radius: 10px;
+              -moz-border-radius: 10px;
+              border-radius: 10px;
+              border: 1px solid #ccc;
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              width: 10px;
+              height: 10px;
+              display: inline-block;
+              margin-left: 15px;
+              background-color: red; }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                .app-chatter .main .left-align .sidebar-right .members .member-info .circle {
+                  -webkit-border-radius: 12px;
+                  -moz-border-radius: 12px;
+                  border-radius: 12px;
+                  border: 1px solid #ccc;
+                  width: 12px;
+                  height: 12px;
+                  display: inline-block;
+                  margin-left: 15px;
+                  top: 12px;
+                  right: 12px; } }
+              @media (min-width: 1024px) {
+                .app-chatter .main .left-align .sidebar-right .members .member-info .circle {
+                  -webkit-border-radius: 14px;
+                  -moz-border-radius: 14px;
+                  border-radius: 14px;
+                  border: 1px solid #ccc;
+                  width: 14px;
+                  height: 14px;
+                  display: inline-block;
+                  margin-left: 15px;
+                  top: 14px;
+                  right: 14px; } }
+              .app-chatter .main .left-align .sidebar-right .members .member-info .circle--online {
+                background-color: green; }
+              .app-chatter .main .left-align .sidebar-right .members .member-info .circle--offline {
+                background-color: red; }
       .app-chatter .main .left-align .footercontainer {
         height: auto;
         max-height: 15%;
@@ -507,7 +515,7 @@ body {
         border-radius: 10px; }
     .app-chatter .messages.me {
       justify-content: flex-start;
-      color: red; }
+      color: indianred; }
       .app-chatter .messages.me .message-body .message-text {
         background: #00cec9;
         color: #FFF; }
