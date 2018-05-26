@@ -8,7 +8,10 @@
 
 # production
 /build
-
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
 # misc
 .DS_Store
 .env
