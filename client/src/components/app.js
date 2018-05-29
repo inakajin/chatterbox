@@ -12,14 +12,29 @@ import Add from './Add';
 import Chatter from './chatter';
 import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
+import { fetchChatData, refreshData } from "../actions/chat-data";
+import io from "socket.io-client";
+import { API_BASE_URL } from "../config";
 
 export class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          //height: window.innerHeight,
+          socket: null
+        };
+        //this._onResize = this._onResize.bind(this);
+      }
     componentDidMount() {
+      
         if (this.props.hasAuthToken) {
             // Try to get a fresh auth token if we had an existing one in
             // localStorage
             this.props.dispatch(refreshAuthToken());
         }
+        //var socket = io.connect(API_BASE_URL);
+        //this.setState({socket:socket})
+        //this.props.dispatch(refreshData(socket));
     }
 
     componentWillReceiveProps(nextProps) {
@@ -56,16 +71,20 @@ export class App extends React.Component {
             <div className="app-chatter">
                 <HeaderBar />
                 <div className="main">
+                {this.props.loggedIn ?
                     <div className="left-align">
                     <RightSideBar />
                     <LeftSideBar />
                     <FooterBar />
-                    </div>   
+                    </div>
+                :""
+                }
+                       
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
                     <Route exact path="/add" component={Add} />
-                    <Route exact path="/room/:roomid" component={Chatter} />    
+                    <Route exact path="/room/:roomid" component={Chatter} socket={this.state.socket} />    
                 </div>                               
             </div>
         );

@@ -162,7 +162,7 @@ body{
             .rooms{
                 list-style-type: none;
                 border: 1px solid gray;
-                max-height: 45%;
+                max-height: 60vh;
                 overflow-y: scroll;
                 
                 .room-info{
@@ -252,7 +252,7 @@ body{
                 border: 1px solid gray;
                 background-color: royalblue;
                 color: white;
-                max-height: 45%;
+                max-height: 40vh;
                 overflow-y: scroll;
                 .member-info{
                     border: 1px solid gray;
@@ -345,7 +345,7 @@ body{
         }
         .footercontainer{
             height: auto;
-            max-height: 15%;
+            max-height: 15vh;
             margin: auto auto 0 auto;
             position: fixed;
             bottom: 0;
@@ -585,11 +585,11 @@ body{
             padding-top: 25px;
             padding-bottom: 10px;
             
-            }
+            
             .message-body{
                 padding-left: 10px;
                 .message-author{
-    
+                    color: #636e72;
                 }
                 .message-text{
                     background: $body-color;
@@ -603,12 +603,13 @@ body{
                 color: indianred;
                 .message-body{
                     .message-text{
-                        background: $primary-color;
+                        background: indianred;
                         color: #FFF;
                     }
                 }
             }
         }    
+    }
 }
 
 

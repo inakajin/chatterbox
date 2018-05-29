@@ -6,10 +6,8 @@ import {reset} from 'redux-form';
 
 
 export const sendEntry = (chat, socket) => (dispatch, getState) => {
-    //console.log(socket);
     const authToken = getState().auth.authToken;
-    //console.log(authToken);
-    //console.log(chat);
+    const userId = getState().auth.currentUser.id;
     return fetch(`${API_BASE_URL}/add`, {
         method: 'POST',
         body: JSON.stringify(chat),
@@ -21,9 +19,13 @@ export const sendEntry = (chat, socket) => (dispatch, getState) => {
         }
     })
     .then((response) => {
-        //console.log(response);
-        //console.log(chat);
-        socket.emit('message', chat.body);
+        console.log(getState())
+        console.log(chat);
+        let body = chat.body;
+        
+//        body['userId'] = userId;
+        console.log(body);
+        socket.emit('message', body);
         dispatch(reset("add"));
       })
 }

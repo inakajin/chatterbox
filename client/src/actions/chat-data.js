@@ -40,8 +40,8 @@ export const refreshData = (socket) => {
       //console.log('mango');
       socket.removeListener('message');
       socket.on('message', function(response) {
-        //console.log('peach');
-        //console.log(response);
+        console.log('peach');
+        console.log(response);
         dispatch({
           type: 'REALTIME_REFRESH',
           payload: response,

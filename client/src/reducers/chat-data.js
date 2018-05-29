@@ -10,7 +10,8 @@ const initialState = {
     error: null,
     rooms: [],
     messages: [],
-    users: []
+    users: [],
+    //hasfetched: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -34,12 +35,17 @@ export default function reducer(state = initialState, action) {
         }
         case 'REALTIME_REFRESH': {
             console.log(action, state)
+          //  if (state.hasfetched){
+         //       return
+            //}
             let newMsg = [...state.messages]
-            newMsg.push({body: action.payload.message, username: action.payload.username})
+            newMsg.push({body: action.payload.message, username: action.payload.username, userId: action.payload.userId})
+            //newMsg.push(action.payload);
             console.log(newMsg)
             return {
                 ...state,
-                messages: newMsg
+                messages: newMsg,
+                //hasfetched: true
             }
         }
 
@@ -52,9 +58,6 @@ export default function reducer(state = initialState, action) {
                 return user;
              })
              console.log(activeusers)
-            //var arr = state.users.filter(function(item){
-            //    return action.payload.indexOf(item.id) === -1;
-            //  });
             return {
                 ...state,
                 users: activeusers

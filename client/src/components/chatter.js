@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 //import avatar from "../user-avatar.png";
 import Add from "./Add";
+import {Link, Redirect} from 'react-router-dom';
 //import { createRoom } from "../actions/rooms";
 import Rooms from './rooms';
 import Members from './members';
@@ -40,6 +41,7 @@ class Chatter extends Component {
 
   componentWillReceiveProps(props) { 
     var socket = io.connect(API_BASE_URL);
+    //var socket = this.props.socket; 
       //console.log('componentWillReceiveProps')
       //console.log(this.props)
       socket.emit("active", this.props.currentUser.id) 
@@ -51,9 +53,12 @@ class Chatter extends Component {
       //this.props.dispatch(fetchChatData(this.props.match.params.roomid));
     }
 
-  componentWillMount() {
+  componentDidMount() {
     // set-up a connection between the client and the server
+    //debugger
     var socket = io.connect(API_BASE_URL);
+    //var socket = this.props.socket; 
+    console.log(this.props);
     //console.log("componentWillMount");
     // let's assume that the client page, once rendered, knows what room it wants to join
     var room = this.props.match.params.roomid;
@@ -63,7 +68,7 @@ class Chatter extends Component {
     //console.log(this.props);
     // Connected, let's sign-up for to receive messages for this room
     //if (this.props){
-    socket.emit("room", {room: room, user: user});
+      socket.emit("room", {room: room, user: user});
       //}
       
     });
@@ -72,20 +77,20 @@ class Chatter extends Component {
       console.log("Incoming message:", data);
     });
 
-    socket.on("userid", function(data) {
+    /*socket.on("userid", function(data) {
         console.log("Incoming userid", data);
       });
 
     socket.on("user", function(data) {
         console.log("Incoming message:", data);
-      });
-
+      });*/
+     
     this.props.dispatch(refreshData(socket));
 
     this.setState({socket:socket})
     //console.log(this);
-  }
-  componentDidMount() {
+  //}
+  //componentDidMount() {
     //console.log("component did mount", this.props, this.state);
     window.addEventListener("resize", this._onResize);
     this.props.dispatch(fetchChatData(this.props.match.params.roomid))    
@@ -126,6 +131,7 @@ class Chatter extends Component {
 
   componentDidUpdate() {
       console.log("Component did update", this.props, this.state)
+      //debugger
   }
 
   connectUserSocket = () => {
@@ -136,8 +142,11 @@ class Chatter extends Component {
       
   }
   render() {
-    //console.log(this);
-    this.connectUserSocket();
+    console.log(this.props);
+    if (!this.props.loggedIn) {
+      return <Redirect to="/" />;
+  }
+ //   this.connectUserSocket();
     const { height } = this.state;
     const { messages } = this.props;
     const style = {

@@ -143,7 +143,7 @@ body {
         .app-chatter .main .left-align .sidebar-left .rooms {
           list-style-type: none;
           border: 1px solid gray;
-          max-height: 45%;
+          max-height: 60vh;
           overflow-y: scroll; }
           .app-chatter .main .left-align .sidebar-left .rooms .room-info {
             border: 1px solid gray;
@@ -219,7 +219,7 @@ body {
           border: 1px solid gray;
           background-color: royalblue;
           color: white;
-          max-height: 45%;
+          max-height: 40vh;
           overflow-y: scroll; }
           .app-chatter .main .left-align .sidebar-right .members .member-info {
             border: 1px solid gray;
@@ -301,7 +301,7 @@ body {
                 background-color: red; }
       .app-chatter .main .left-align .footercontainer {
         height: auto;
-        max-height: 15%;
+        max-height: 15vh;
         margin: auto auto 0 auto;
         position: fixed;
         bottom: 0;
@@ -506,18 +506,20 @@ body {
       margin: 15px 0;
       padding-top: 25px;
       padding-bottom: 10px; }
-    .app-chatter .messages .message-body {
-      padding-left: 10px; }
-      .app-chatter .messages .message-body .message-text {
-        background: #636e72;
-        color: #FFF;
-        padding: 10px;
-        border-radius: 10px; }
-    .app-chatter .messages.me {
-      justify-content: flex-start;
-      color: indianred; }
-      .app-chatter .messages.me .message-body .message-text {
-        background: #00cec9;
-        color: #FFF; }
+      .app-chatter .messages .message .message-body {
+        padding-left: 10px; }
+        .app-chatter .messages .message .message-body .message-author {
+          color: #636e72; }
+        .app-chatter .messages .message .message-body .message-text {
+          background: #636e72;
+          color: #FFF;
+          padding: 10px;
+          border-radius: 10px; }
+      .app-chatter .messages .message.me {
+        justify-content: flex-start;
+        color: indianred; }
+        .app-chatter .messages .message.me .message-body .message-text {
+          background: indianred;
+          color: #FFF; }
 
 /*# sourceMappingURL=app.css.map */
