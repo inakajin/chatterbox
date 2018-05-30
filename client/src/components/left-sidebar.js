@@ -14,18 +14,18 @@ export class LeftSideBar extends React.Component {
         this.state = {activeroom: null};
       }
     componentDidMount () {
-        //console.log("camel")
+       
         this.props.dispatch(fetchRoomNames(this.props));
     }
     selectedItem = (activeroom) => {
-        //console.log(activeroom)
+       
         this.setState({activeroom: activeroom})
     }
     render() {
         const roomnames = this.props.roomnames.map((room, i) => {
-            //console.log(this, window.location)
+            
             //let pathy = window.location.pathname;
-            //console.log(pathy);
+         
             return <li key={i} className={"room-info "+ (this.state.activeroom == `/room/${room._id}` ? 'room-info--active' : 'room-info--inactive')} onClick={()=>this.selectedItem(window.location.pathname)}>
                     <Link to={{ pathname: `/room/${room._id}`, name:room.roomname }}>
                         <h2>{room.roomname}</h2>

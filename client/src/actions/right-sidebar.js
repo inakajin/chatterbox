@@ -15,7 +15,7 @@ export const fetchProtectedDataError = error => ({
 });
 
 export const getUsers = () => (dispatch, getState) => {
-    console.log(getState());
+    
 
     return fetch(`${API_BASE_URL}/getusers`, {
         method: 'GET'
@@ -30,11 +30,10 @@ export const getUsers = () => (dispatch, getState) => {
 
 export const refreshUserData = (socket) => {
     return (dispatch) => {
-      //console.log('mango');
+     
       socket.removeListener('activeusers');
       socket.on('activeusers', function(response) {
-        //console.log('peach');
-        //console.log(response);
+       
         dispatch({
           type: 'REALTIME_USERS',
           payload: response,
@@ -45,11 +44,10 @@ export const refreshUserData = (socket) => {
 
 export const refreshData = (socket) => {
     return (dispatch) => {
-      //console.log('mango');
+  
       socket.removeListener('message');
       socket.on('message', function(response) {
-        //console.log('peach');
-        //console.log(response);
+      
         dispatch({
           type: 'REALTIME_REFRESH',
           payload: response

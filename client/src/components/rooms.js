@@ -4,9 +4,7 @@ import {Link, Redirect} from 'react-router-dom';
 import LeftSideBar from './left-sidebar';
 
 export class Rooms extends React.Component {
-    componentDidMount() {
-        console.log("rooms");
-    }
+  
     // If we are logged in redirect straight to the user's dashboard
     render(){
     return (

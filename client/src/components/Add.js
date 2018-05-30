@@ -23,12 +23,11 @@ export class Add extends React.Component {
 
 
     onSubmit(values) {
-        //console.log(this.props)
         let submission = {
             body: values.chat, 
             roomId: this.props.roomId           
         };
-        //console.log(submission);
+       
         return this.props.dispatch(sendEntry(submission, this.props.socket));
         
     }
@@ -52,7 +51,7 @@ export class Add extends React.Component {
         }
         const handleSubmit = this.props.handleSubmit(values =>
             this.onSubmit(values),
-            //console.log(this),
+
             
             //this.props.clearSubmit()
         );

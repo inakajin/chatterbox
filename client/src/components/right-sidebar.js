@@ -15,16 +15,16 @@ import classNames from "classnames";
 //let users = [];
 export class RightSideBar extends React.Component {
     componentDidMount () {
-        console.log("camel")
+       
         this.props.dispatch(getUsers());
         var socket = io.connect(API_BASE_URL);
         this.props.dispatch(refreshUserData(socket));
     }
 
     render() {
-        console.log(this.props);
+       
         const members = this.props.users.map((user, i) => {
-           console.log(user);
+           
 
         
           
@@ -62,7 +62,7 @@ export class RightSideBar extends React.Component {
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
-    //console.log(currentUser);
+    
     return {
         loggedIn: currentUser !== null,
         email: currentUser ? state.auth.currentUser.email : '',

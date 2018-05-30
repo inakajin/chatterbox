@@ -7,7 +7,7 @@ import RegistrationForm from './registration-form';
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
     // is successful) redirect to the user's dashboard
-    console.log(props.loggedIn);
+  
     if (props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }

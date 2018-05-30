@@ -1,6 +1,5 @@
 import React from 'react';
 import Chatter from './chatter';
-import refreshData from '../actions/socketlistener';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import {fetchChatData} from '../actions/chat-data';
@@ -15,7 +14,6 @@ export class Dashboard extends React.Component {
         if (!this.props.loggedIn) {
             return <Redirect to="/" />;
         }
-        //console.log(this.props);
         //socket.emit("active")
         return (
             
@@ -36,7 +34,6 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
-    //console.log(currentUser);
     return {
         loggedIn: currentUser !== null,
         email: currentUser ? state.auth.currentUser.email : '',

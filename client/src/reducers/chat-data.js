@@ -1,4 +1,4 @@
-import avatar from '../user-avatar.png';
+//import avatar from '../user-avatar.png';
 
 import {
     FETCH_PROTECTED_DATA_SUCCESS,
@@ -15,10 +15,10 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    console.log(action.type);
+ 
     switch (action.type) {
         case FETCH_PROTECTED_DATA_SUCCESS: {
-            console.log(action, state)
+           
             return {
                 ...state,
                 data: action.data,
@@ -34,37 +34,32 @@ export default function reducer(state = initialState, action) {
             }
         }
         case 'REALTIME_REFRESH': {
-            console.log(action, state)
-          //  if (state.hasfetched){
-         //       return
-            //}
+            //console.log(action,state);
+            //if(action.payload.userId!=state.currentUser.id)
+           // {notifyMe(action.payload.message)}
             let newMsg = [...state.messages]
             newMsg.push({body: action.payload.message, username: action.payload.username, userId: action.payload.userId})
-            //newMsg.push(action.payload);
             console.log(newMsg)
             return {
                 ...state,
                 messages: newMsg,
-                //hasfetched: true
             }
         }
 
         case 'REALTIME_USERS': {
-            console.log(action, state)
+            
             let activeusers = state.users.map((user)=>{
                 if(action.payload.indexOf(user._id) > -1 ){
                      user['active'] = true;
                 }
                 return user;
              })
-             console.log(activeusers)
+            
             return {
                 ...state,
                 users: activeusers
             }
         }
-
-        //case @@redux-form/SET_SUBMIT_SUCCEEDED
 
         case 'FETCH_ROOMNAMES': {
             console.log(action, state)
@@ -88,7 +83,7 @@ export default function reducer(state = initialState, action) {
 }
 
 
-function addTestMessages(){
+/*function addTestMessages(){
     let messages = [];
     for(let i = 0; i < 2; i++){
 
@@ -108,4 +103,32 @@ function addTestMessages(){
     }
     console.log(messages)
     return messages;
-}
+}*/
+
+/*function notifyMe(message) {
+    // Let's check if the browser supports notifications
+    if (!("Notification" in window)) {
+      alert("This browser does not support system notifications");
+    }
+  
+    // Let's check whether notification permissions have already been granted
+    else if (Notification.permission === "granted") {
+      // If it's okay let's create a notification
+      var notification = new Notification(message);
+    }
+  
+    // Otherwise, we need to ask the user for permission
+    else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        // If the user accepts, let's create a notification
+        if (permission === "granted") {
+          var notification = new Notification(message);
+        }
+      });
+    }
+  
+    // Finally, if the user has denied notifications and you 
+    // want to be respectful there is no need to bother them any more.
+  }
+
+  notifyMe();*/

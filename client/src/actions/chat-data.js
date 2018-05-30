@@ -36,8 +36,9 @@ export const fetchChatData = (id) => (dispatch, getState) => {
 
 
 export const refreshData = (socket) => {
+    console.log("sasquatch")
     return (dispatch) => {
-      //console.log('mango');
+      console.log('mango');
       socket.removeListener('message');
       socket.on('message', function(response) {
         console.log('peach');
@@ -45,7 +46,6 @@ export const refreshData = (socket) => {
         dispatch({
           type: 'REALTIME_REFRESH',
           payload: response,
-          //time: time
         })
       });
     }

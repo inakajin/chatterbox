@@ -19,12 +19,8 @@ export const sendEntry = (chat, socket) => (dispatch, getState) => {
         }
     })
     .then((response) => {
-        console.log(getState())
-        console.log(chat);
         let body = chat.body;
-        
-//        body['userId'] = userId;
-        console.log(body);
+        console.log("hippopotamus");
         socket.emit('message', body);
         dispatch(reset("add"));
       })

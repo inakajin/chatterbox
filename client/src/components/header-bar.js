@@ -10,13 +10,12 @@ export class HeaderBar extends React.Component {
         this.props.dispatch(setCurrentUser(null));
         this.props.dispatch(setAuthToken(null));
         clearAuthToken();
-        console.log(this.props);
+        
         
     }
 
     newroom = () => {
         let roomname = prompt("Enter Room Name", "default");
-        console.log(roomname);
         if (roomname){
             this.props.dispatch(createRoom(roomname));
         }
