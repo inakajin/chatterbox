@@ -7,11 +7,8 @@ const passport = require('passport');
 const jsonParser = bodyParser.json();
 const socketEvents = require('./socketEvents');
 const {router: Router, basicStrategy, jwtStrategy} = require('./controllers/router');
-
 mongoose.Promise = global.Promise;
-
 const {PORT, DATABASE_URL} = require('./config');
-
 const app = express();
 
 // Logging
@@ -40,8 +37,6 @@ app.get(
     '/protected',
     passport.authenticate('jwt', {session: false}),
     (req, res) => {
-        console.log(req.user);
-        console.log('asparagus');
         return res.json({
             data: 'rosebud'
         });

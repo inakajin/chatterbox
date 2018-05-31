@@ -12,16 +12,6 @@ import {API_BASE_URL} from '../config';
 
 export class Add extends React.Component {
 
-   //componentWillMount() {
-        //this.props.dispatch(refreshData());
-   // }
-
-    //componentDidMount() {
-       // this.props.dispatch(testFetch());
-   
-   // }
-
-
     onSubmit(values) {
         let submission = {
             body: values.chat, 
@@ -52,10 +42,7 @@ export class Add extends React.Component {
         const handleSubmit = this.props.handleSubmit(values =>
             this.onSubmit(values),
 
-            
-            //this.props.clearSubmit()
         );
-        //if (!this.props.loggedIn) {
 
         return (
             

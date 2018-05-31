@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-//import avatar from "../user-avatar.png";
 import Add from "./Add";
 import {Link, Redirect} from 'react-router-dom';
-//import { createRoom } from "../actions/rooms";
 import Rooms from './rooms';
 import Members from './members';
 import { connect } from "react-redux";
 import { fetchChatData, refreshData } from "../actions/chat-data";
 import io from "socket.io-client";
 import { API_BASE_URL } from "../config";
-//import FooterBar from './footer-bar';
 
 
 class Chatter extends Component {
@@ -27,11 +24,6 @@ class Chatter extends Component {
     this.setState({
       height: window.innerHeight
     });
-    console.log("window is resizing");
-  }
-
-  componentWillUpdate() {
-  console.log("componentWillUpdate");
   }
 
   componentWillReceiveProps(props) { 
@@ -55,10 +47,7 @@ class Chatter extends Component {
     // Connected, let's sign-up for to receive messages for this room
       socket.emit("room", {room: room, user: user});      
     });
-     //console.log(this.props.loggedIn)
-    // if (this.props.loggedIn) {
-      this.props.dispatch(refreshData(socket));
-    //}
+    this.props.dispatch(refreshData(socket));
     this.setState({socket:socket})
     window.addEventListener("resize", this._onResize);
     this.props.dispatch(fetchChatData(this.props.match.params.roomid))    
@@ -66,31 +55,22 @@ class Chatter extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this._onResize);
-    console.log("component will unmount");
-  }
-
-  componentDidUpdate() {
-      console.log("Component did update", this.props, this.state)
   }
 
   connectUserSocket = () => {
       var room = this.props.match.params.roomid;
       var user = this.props.currentUser;
-      var socket = this.state.socket;
-      
+      var socket = this.state.socket;      
   }
   render() {
-    console.log(this.props);
     if (!this.props.loggedIn) {
       return <Redirect to="/" />;
    }
-  console.log("cumin", this.props.loggedIn);
     const { height } = this.state;
     const { messages } = this.props;
     const style = {
       height: height
     };
-    console.log(messages);
     return (
         
      <div className="content">            

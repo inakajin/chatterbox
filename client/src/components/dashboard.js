@@ -8,13 +8,10 @@ import Rooms from './rooms';
 export class Dashboard extends React.Component {
 
 
-    render() {
-       //  Only visible to logged in users
-       
+    render() {       
         if (!this.props.loggedIn) {
             return <Redirect to="/" />;
         }
-        //socket.emit("active")
         return (
             
             <div className="dashboard">
@@ -23,10 +20,7 @@ export class Dashboard extends React.Component {
                     <h2>Welcome, {this.props.username}.</h2>
                 </div>
                 
-                <br />
-                {/*<Link to="/add">Add Entry</Link>*/}
-              
-                
+                <br />                
             </div>
         );
     }
