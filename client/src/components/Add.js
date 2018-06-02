@@ -45,7 +45,7 @@ export class Add extends React.Component {
         );
 
         return (
-            
+            <div className="formwrapper">
             <form
                 className="chat-form"
                 onSubmit={handleSubmit}
@@ -64,6 +64,7 @@ export class Add extends React.Component {
                 </div>
                 </div>
             </form>
+            </div>
         );
     }
 }

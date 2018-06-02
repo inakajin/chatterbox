@@ -25,6 +25,8 @@ body{
    
     .header{
         height: $header-height;
+        width: 100%;
+        position: fixed;
         @include tablet {
             height: $header-height-tablet;
           }
@@ -62,7 +64,6 @@ body{
               }       
         }
         .left{
-            //width: $left-sidebar-width;
             width: auto;
             .actions{
                 line-height: $header-height;
@@ -116,18 +117,22 @@ body{
     }
     .main{
         height: 100%;
-        min-height: calc(100vh - 50px);
+        min-height: 100vh;
         display: flex;
         overflow: hidden;
         .left-align{
+            position: fixed;
+            top: $header-height;
             width: $left-sidebar-width;
             background-color: whitesmoke;
             @include tablet {
                 width: $left-sidebar-width-tablet;
+                top: $header-height-tablet;
               }
             
               @include desktop {
                 width: $left-sidebar-width-desktop;
+                top: $header-height-desktop;
               }
         .sidebar-left{
             border-right: 1px solid $border-color;
@@ -203,7 +208,6 @@ body{
                           a:hover { text-decoration: underline; }
                           a:focus { text-decoration: none; }
                           a:hover, a:active { text-decoration: underline; }
-                          //li.selected { background-color: purple; }
                           &--active {
                             color: black;
                           } 
@@ -362,7 +366,6 @@ body{
             display: flex;
             flex-direction: row;
             border: 1px solid gray;
-            //border-right: 1px solid $border-color;
             font-style: italic;
             font-family: 'Montserrat', sans-serif;
             background-color: #DEDEDE;
@@ -371,9 +374,7 @@ body{
             background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
             background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */
             vertical-align: middle;
-                //}
                 .left{
-                    //width: $left-sidebar-width;
                     justify-content: flex-start;
                     width:100%;
                     .footericons{                       
@@ -421,12 +422,10 @@ body{
                         font-size: 8px;
                 
                     @include tablet {
-                        //line-height: $header-height-tablet;
                         font-size: 10px;
                     }
                 
                     @include desktop {
-                        //line-height: $header-height-desktop;
                         font-size: 12px;
                     }
                         }
@@ -434,6 +433,23 @@ body{
                 }
             }
     }
+        .dashboard-username{
+            margin-top: 100px;
+            font-size: 10px;
+            padding-left: 15px;
+            @include tablet {
+                font-size: 14px;
+                padding-left: 5px;
+            }
+            @include desktop {
+                font-size: 18px;
+                padding-left: 0;
+            }
+        
+        }
+        .dashboard{
+            height: 100vh;
+        }
         .content, .dashboard, .registration, .home{
             flex-grow: 1;
             overflow: hidden;
@@ -441,7 +457,6 @@ body{
             flex-direction: column;
             padding: 10px;
             background-color: whitesmoke;
-            //text-align: center;
             h2, p{
                 text-align: center;
                 margin-bottom: 10px;
@@ -457,8 +472,6 @@ body{
                 }
             }
             .login-form{
-                //text-align: center;
-                
                 input{
                     margin-bottom: 10px;
                     height: 20px;
@@ -485,7 +498,6 @@ body{
                     cursor: pointer;
                     margin-bottom: 10px;
                     line-height: $header-height - 10px; 
-                    //height: 40px; 
                     border: none;
                     border-radius: 12px;
                     background-color: #DEDEDE;
@@ -497,33 +509,42 @@ body{
             }
             .messages{
                 flex-grow: 1;
+                margin-bottom: 12vh;
+                padding-left: $left-sidebar-width;
+                    @include tablet {
+                        padding-left: $left-sidebar-width-tablet;
+                      }
+                    
+                      @include desktop {
+                        padding-left: $left-sidebar-width-desktop;
+                      }
             }
             .chat-form{
                position: fixed;
-               bottom: 10px;
+               bottom: 0;
+               right: 0;
                z-index: 3;
-               width: 65%;
+               width: 68%;
                @include tablet {
-                    width: 75%;
+                    width: 80%;
                 }
                 @include desktop {
-                    width: 80%;
+                    width: 85%;
                 } 
 
             .chatter-input{
                 border-top: 1px solid $border-color;
-                height: 35px;
+                height: 6.5vh;
                 @include tablet {
-                    height: 45px;
+                    height: 5.3vh;
                 }
                 @include desktop {
-                    height: 50px;
+                    height: 6.4vh;
                 }
                 display: flex;
                 flex-direction: row;
                 .text-input{
                     flex-grow: 1;
-                    //vertical-align: middle;
                     textarea{
                         border: 1px solid gray;
                         border-right: 0;
@@ -554,11 +575,8 @@ body{
                             font-size: 16px;
                         }  
                         color: black;
-                        //vertical-align: middle;
-                        //padding: 7px 15px;
                         padding-left: 12px;
                         padding-right: 12px;
-                        //line-height: 50px;
                         background-color: #DEDEDE;
                         background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
                         background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Opera 11.1 to 12.0 */
@@ -577,6 +595,13 @@ body{
         flex-direction: column;
         overflow-y: auto;  
         height: 100%;
+        padding-top: $header-height;
+        @include tablet {
+            padding-top: $header-height-tablet;
+        } 
+        @include desktop {
+            padding-top: $header-height-desktop;
+        } 
         .message{
             display: flex;
             flex-direction: row;
