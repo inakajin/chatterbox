@@ -39,7 +39,7 @@ export class RegistrationForm extends React.Component {
           component={Input}
           type="password"
           name="password"
-          validate={[required, length({ min: 1, max: 4 }), isTrimmed]}
+          validate={[required, length({ min: 4, max: 10 }), isTrimmed]}
         />
         <label htmlFor="passwordConfirm">Confirm password</label>
         <Field
