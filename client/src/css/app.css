@@ -101,7 +101,14 @@ body {
     height: 100%;
     min-height: 100vh;
     display: flex;
-    overflow: hidden; }
+    overflow: hidden;
+    margin-top: 45px; }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .app-chatter .main {
+        margin-top: 60px; } }
+    @media (min-width: 1024px) {
+      .app-chatter .main {
+        margin-top: 75px; } }
     .app-chatter .main .left-align {
       position: fixed;
       top: 45px;
@@ -409,12 +416,15 @@ body {
         text-align: center;
         margin-bottom: 10px; }
       .app-chatter .main .content .block, .app-chatter .main .content .home, .app-chatter .main .dashboard .block, .app-chatter .main .dashboard .home, .app-chatter .main .registration .block, .app-chatter .main .registration .home, .app-chatter .main .home .block, .app-chatter .main .home .home {
-        text-align: center; }
+        text-align: center;
+        margin-top: 75px; }
         .app-chatter .main .content .block label, .app-chatter .main .content .block input, .app-chatter .main .content .home label, .app-chatter .main .content .home input, .app-chatter .main .dashboard .block label, .app-chatter .main .dashboard .block input, .app-chatter .main .dashboard .home label, .app-chatter .main .dashboard .home input, .app-chatter .main .registration .block label, .app-chatter .main .registration .block input, .app-chatter .main .registration .home label, .app-chatter .main .registration .home input, .app-chatter .main .home .block label, .app-chatter .main .home .block input, .app-chatter .main .home .home label, .app-chatter .main .home .home input {
           float: left; }
         .app-chatter .main .content .block label, .app-chatter .main .content .block button, .app-chatter .main .content .home label, .app-chatter .main .content .home button, .app-chatter .main .dashboard .block label, .app-chatter .main .dashboard .block button, .app-chatter .main .dashboard .home label, .app-chatter .main .dashboard .home button, .app-chatter .main .registration .block label, .app-chatter .main .registration .block button, .app-chatter .main .registration .home label, .app-chatter .main .registration .home button, .app-chatter .main .home .block label, .app-chatter .main .home .block button, .app-chatter .main .home .home label, .app-chatter .main .home .home button {
           clear: left;
           display: block; }
+      .app-chatter .main .content .demo p, .app-chatter .main .dashboard .demo p, .app-chatter .main .registration .demo p, .app-chatter .main .home .demo p {
+        text-align: left; }
       .app-chatter .main .content .login-form input, .app-chatter .main .dashboard .login-form input, .app-chatter .main .registration .login-form input, .app-chatter .main .home .login-form input {
         margin-bottom: 10px;
         height: 20px;

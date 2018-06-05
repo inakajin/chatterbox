@@ -16,6 +16,11 @@ export function LandingPage(props) {
       <p>Create a room and chat with your friends.</p>
       <LoginForm />
       <Link to="/register">Register</Link>
+      <div className="demo">
+        <p>Demo accounts:</p>
+        <p>user1@test.com:user1</p>
+        <p>user2@test.com:user2</p>
+      </div>
     </div>
   );
 }

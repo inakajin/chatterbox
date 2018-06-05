@@ -120,6 +120,14 @@ body{
         min-height: 100vh;
         display: flex;
         overflow: hidden;
+        margin-top: $header-height;
+        @include tablet {
+            margin-top: $header-height-tablet;
+          }
+        
+          @include desktop {
+            margin-top: $header-height-desktop;
+          }
         .left-align{
             position: fixed;
             top: $header-height;
@@ -463,12 +471,18 @@ body{
             }
             .block, .home{
                 text-align: center;
+                margin-top: 75px;
                 label, input{
                     float: left;
                 }
                 label, button{
                     clear: left;
                     display: block;
+                }
+            }
+            .demo{
+                p{
+                    text-align: left;
                 }
             }
             .login-form{
@@ -507,6 +521,7 @@ body{
                     background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */        
                 }
             }
+            
             .messages{
                 flex-grow: 1;
                 margin-bottom: 12vh;
