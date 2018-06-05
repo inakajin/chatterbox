@@ -152,7 +152,7 @@ body{
               @include desktop {
                 width: $left-sidebar-width-desktop;
               }
-            background-color:#A5C663;
+            background-color:#669999;
             .title{
                 background-color: #DEDEDE;
                 background: -webkit-linear-gradient(#DEDEDE, #BFBFBF , #999999); /* For Safari 5.1 to 6.0 */
@@ -221,7 +221,7 @@ body{
                           } 
                     }
                     &--active {
-                        background-color:purple;
+                        background-color:indianred;
                       }
                     
                 }
@@ -348,7 +348,7 @@ body{
                             background-color: green;
                           }
                           &--offline {
-                            background-color: red;
+                            background-color: indianred;
                           } 
                         
                     }
@@ -465,6 +465,7 @@ body{
             flex-direction: column;
             padding: 10px;
             background-color: whitesmoke;
+            text-align: center;
             h2, p{
                 text-align: center;
                 margin-bottom: 10px;
@@ -472,17 +473,14 @@ body{
             .block, .home{
                 text-align: center;
                 margin-top: 75px;
-                label, input{
-                    float: left;
-                }
-                label, button{
-                    clear: left;
+                label, button, a{
                     display: block;
+                    margin: auto;
                 }
             }
             .demo{
                 p{
-                    text-align: left;
+                    text-align: center;
                 }
             }
             .login-form{
@@ -520,6 +518,7 @@ body{
                     background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999); /* For Firefox 3.6 to 15 */
                     background: linear-gradient(#DEDEDE, #BFBFBF, #999999); /* Standard syntax */        
                 }
+                
             }
             
             .messages{
