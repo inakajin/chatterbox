@@ -157,7 +157,8 @@ body {
           list-style-type: none;
           border: 1px solid gray;
           max-height: 60vh;
-          overflow-y: scroll; }
+          overflow-y: scroll;
+          padding-bottom: 165px; }
           .app-chatter .main .left-align .sidebar-left .rooms .room-info {
             border: 1px solid gray;
             padding: 6px; }
