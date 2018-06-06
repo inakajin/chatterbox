@@ -16,6 +16,8 @@ The API was built using node.js.
 
 ## Usage
 Simply register then begin chatting.
+
+
 ![alt text](client/screenshots/registerlink.png "Registration")
 
 ### Register
