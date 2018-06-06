@@ -1,0 +1,5 @@
+This is a chat application developed using Node, React and socket.io. It uses sass for styling.
+
+The app can be access here: https://chatterboxapp.netlify.com/
+
+Simply register then begin chatting.
