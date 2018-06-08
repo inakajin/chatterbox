@@ -13,6 +13,7 @@ export class LeftSideBar extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(fetchRoomNames(this.props));
+    this.setState({ activeroom: "/room/5b1729ecf7f53c00147f9b52" });
   }
   selectedItem = activeroom => {
     this.setState({ activeroom: activeroom });

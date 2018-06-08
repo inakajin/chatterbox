@@ -66,8 +66,9 @@ export class App extends React.Component {
         <div className="main">
           {this.props.loggedIn ? (
             <div className="left-align">
-              <RightSideBar />
+              
               <LeftSideBar />
+              <RightSideBar />
               <FooterBar />
             </div>
           ) : (

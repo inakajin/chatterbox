@@ -39,16 +39,7 @@ body {
       font-size: 8px;
       cursor: pointer;
       border: none;
-      border-radius: 12px;
-      background-color: #DEDEDE;
-      background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-      /* For Safari 5.1 to 6.0 */
-      background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-      /* For Opera 11.1 to 12.0 */
-      background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-      /* For Firefox 3.6 to 15 */
-      background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-      /* Standard syntax */ }
+      background-color: #DEDEDE; }
       @media (min-width: 768px) and (max-width: 1023px) {
         .app-chatter .header button {
           font-size: 10px;
@@ -134,14 +125,6 @@ body {
             width: 200px; } }
         .app-chatter .main .left-align .sidebar-left .title {
           background-color: #DEDEDE;
-          background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* For Safari 5.1 to 6.0 */
-          background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* For Opera 11.1 to 12.0 */
-          background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* For Firefox 3.6 to 15 */
-          background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* Standard syntax */
           color: black;
           padding: 6px;
           font-size: 8px; }
@@ -155,12 +138,9 @@ body {
               font-size: 12px; } }
         .app-chatter .main .left-align .sidebar-left .rooms {
           list-style-type: none;
-          border: 1px solid gray;
           max-height: 60vh;
-          overflow-y: scroll;
-          padding-bottom: 165px; }
+          overflow-y: scroll; }
           .app-chatter .main .left-align .sidebar-left .rooms .room-info {
-            border: 1px solid gray;
             padding: 6px; }
             @media (min-width: 768px) and (max-width: 1023px) {
               .app-chatter .main .left-align .sidebar-left .rooms .room-info {
@@ -200,7 +180,6 @@ body {
             .app-chatter .main .left-align .sidebar-left .rooms .room-info--active {
               background-color: indianred; }
       .app-chatter .main .left-align .sidebar-right {
-        border-left: 1px solid rgba(0, 0, 0, 0.05);
         width: 100px; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .app-chatter .main .left-align .sidebar-right {
@@ -210,14 +189,6 @@ body {
             width: 200px; } }
         .app-chatter .main .left-align .sidebar-right .title {
           background-color: #DEDEDE;
-          background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* For Safari 5.1 to 6.0 */
-          background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* For Opera 11.1 to 12.0 */
-          background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* For Firefox 3.6 to 15 */
-          background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-          /* Standard syntax */
           color: black;
           padding: 6px;
           font-size: 8px; }
@@ -230,13 +201,12 @@ body {
               padding: 10px;
               font-size: 12px; } }
         .app-chatter .main .left-align .sidebar-right .members {
-          border: 1px solid gray;
           background-color: royalblue;
           color: white;
           max-height: 40vh;
-          overflow-y: scroll; }
+          overflow-y: scroll;
+          padding-bottom: 165px; }
           .app-chatter .main .left-align .sidebar-right .members .member-info {
-            border: 1px solid gray;
             padding: 6px;
             position: relative; }
             @media (min-width: 768px) and (max-width: 1023px) {
@@ -328,14 +298,6 @@ body {
         font-style: italic;
         font-family: 'Montserrat', sans-serif;
         background-color: #DEDEDE;
-        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Firefox 3.6 to 15 */
-        background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* Standard syntax */
         vertical-align: middle; }
         @media (min-width: 768px) and (max-width: 1023px) {
           .app-chatter .main .left-align .footercontainer {
@@ -352,7 +314,8 @@ body {
             justify-content: flex-start;
             padding: 0 5px; }
             .app-chatter .main .left-align .footercontainer .left .footericons .social-links {
-              display: inline-flex; }
+              display: inline-flex;
+              width: 100%; }
               .app-chatter .main .left-align .footercontainer .left .footericons .social-links li {
                 list-style-type: none;
                 text-align: center;
@@ -361,26 +324,29 @@ body {
                 padding-bottom: 5px;
                 padding-top: 0px;
                 vertical-align: middle; }
-                .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a {
-                  text-decoration: none;
-                  color: #335566; }
-                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:visited {
-                    text-decoration: none; }
-                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:hover {
-                    text-decoration: underline; }
-                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:focus {
-                    text-decoration: none; }
-                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:hover, .app-chatter .main .left-align .footercontainer .left .footericons .social-links li a a:active {
-                    text-decoration: underline; }
-                .app-chatter .main .left-align .footercontainer .left .footericons .social-links li img {
-                  vertical-align: middle;
-                  width: 60%; }
-                  @media (min-width: 768px) and (max-width: 1023px) {
-                    .app-chatter .main .left-align .footercontainer .left .footericons .social-links li img {
-                      width: 75%; } }
-                  @media (min-width: 1024px) {
-                    .app-chatter .main .left-align .footercontainer .left .footericons .social-links li img {
-                      width: 100%; } }
+              .app-chatter .main .left-align .footercontainer .left .footericons .social-links a {
+                text-decoration: none;
+                text-align: center;
+                font-size: 2.5vw;
+                width: 33.3%;
+                color: #335566; }
+                .app-chatter .main .left-align .footercontainer .left .footericons .social-links a a:visited {
+                  text-decoration: none; }
+                .app-chatter .main .left-align .footercontainer .left .footericons .social-links a a:hover {
+                  text-decoration: underline; }
+                .app-chatter .main .left-align .footercontainer .left .footericons .social-links a a:focus {
+                  text-decoration: none; }
+                .app-chatter .main .left-align .footercontainer .left .footericons .social-links a a:hover, .app-chatter .main .left-align .footercontainer .left .footericons .social-links a a:active {
+                  text-decoration: underline; }
+              .app-chatter .main .left-align .footercontainer .left .footericons .social-links img {
+                vertical-align: middle;
+                width: 60%; }
+                @media (min-width: 768px) and (max-width: 1023px) {
+                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links img {
+                    width: 75%; } }
+                @media (min-width: 1024px) {
+                  .app-chatter .main .left-align .footercontainer .left .footericons .social-links img {
+                    width: 100%; } }
           .app-chatter .main .left-align .footercontainer .left .footertext {
             vertical-align: middle;
             padding: 5px;
@@ -450,16 +416,7 @@ body {
         margin-bottom: 10px;
         line-height: 35px;
         border: none;
-        border-radius: 12px;
-        background-color: #DEDEDE;
-        background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* For Firefox 3.6 to 15 */
-        background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-        /* Standard syntax */ }
+        background-color: #DEDEDE; }
       .app-chatter .main .content .messages, .app-chatter .main .dashboard .messages, .app-chatter .main .registration .messages, .app-chatter .main .home .messages {
         flex-grow: 1;
         margin-bottom: 12vh;
@@ -475,13 +432,13 @@ body {
         bottom: 0;
         right: 0;
         z-index: 3;
-        width: 68%; }
+        width: calc(100% - 100px); }
         @media (min-width: 768px) and (max-width: 1023px) {
           .app-chatter .main .content .chat-form, .app-chatter .main .dashboard .chat-form, .app-chatter .main .registration .chat-form, .app-chatter .main .home .chat-form {
-            width: 80%; } }
+            width: calc(100% - 150px); } }
         @media (min-width: 1024px) {
           .app-chatter .main .content .chat-form, .app-chatter .main .dashboard .chat-form, .app-chatter .main .registration .chat-form, .app-chatter .main .home .chat-form {
-            width: 85%; } }
+            width: calc(100% - 200px); } }
         .app-chatter .main .content .chat-form .chatter-input, .app-chatter .main .dashboard .chat-form .chatter-input, .app-chatter .main .registration .chat-form .chatter-input, .app-chatter .main .home .chat-form .chatter-input {
           border-top: 1px solid rgba(0, 0, 0, 0.05);
           height: 6.5vh;
@@ -518,15 +475,7 @@ body {
             color: black;
             padding-left: 12px;
             padding-right: 12px;
-            background-color: #DEDEDE;
-            background: -webkit-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-            /* For Safari 5.1 to 6.0 */
-            background: -o-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-            /* For Opera 11.1 to 12.0 */
-            background: -moz-linear-gradient(#DEDEDE, #BFBFBF, #999999);
-            /* For Firefox 3.6 to 15 */
-            background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
-            /* Standard syntax */ }
+            background-color: #DEDEDE; }
             @media (min-width: 768px) and (max-width: 1023px) {
               .app-chatter .main .content .chat-form .chatter-input .actions button.post, .app-chatter .main .dashboard .chat-form .chatter-input .actions button.post, .app-chatter .main .registration .chat-form .chatter-input .actions button.post, .app-chatter .main .home .chat-form .chatter-input .actions button.post {
                 font-size: 14px; } }

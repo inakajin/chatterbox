@@ -2,10 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { setCurrentUser, setAuthToken } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
-//import avatar from "../user-avatar.png";
 import linkedin from "../public/img/linkedin.png";
-//import facebook from '../public/img/facebook-icon.png';
-//import googleplus from '../public/img/googleplusicon.jpeg';
 import gmail from "../public/img/gmail.png";
 import github from "../public/img/github.png";
 import Add from "./Add";
@@ -26,42 +23,34 @@ export class FooterBar extends React.Component {
           </div>
           <div className="footericons">
             <ul className="social-links">
-              <li className="social-list">
-                <a
+            <a
                   href="https://www.linkedin.com/in/mikeadickerson/"
                   target="_blank"
                   aria-label="This is a link Mike Dickerson's linkedin profile"
                 >
-                  <img
-                    className="social-images"
-                    src={linkedin}
-                    alt="linkedin logo"
-                  />
-                </a>
+              <li className="social-list fab fa-linkedin">
+                
+                
               </li>
-
-              <li className="social-list">
-                <a
+              </a>
+              <a
                   href="mailto:inakajin@gmail.com"
                   target="_top"
                   aria-label="This is a link that open an email to Mike Dickerson"
                 >
-                  <img className="social-images" src={gmail} alt="gmail logo" />
-                </a>
+              <li className="social-list fas fa-envelope-open">                
               </li>
-              <li className="social-list">
-                <a
+              </a>
+              <a
                   href="https://github.com/inakajin"
                   target="_blank"
                   aria-label="This is a link to Mike Dickerson's GitHub page"
                 >
-                  <img
-                    className="social-images"
-                    src={github}
-                    alt="github logo"
-                  />
-                </a>
-              </li>
+              <li className="social-list fa fa-github">
+                
+              </li>  
+              </a>
+              
             </ul>
           </div>
         </div>
